@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body, html { 
+    /*overflow:hidden; */
+    background: white;
+    font-family: Tahoma, Sans-serif, Helvetica;
+} 
+.clear{
+    clear:both;
+}
+#header {
+    width: 1024px;
+    height: 48px;
+    background-color: gray;
+}
