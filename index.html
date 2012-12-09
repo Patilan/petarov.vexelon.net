@@ -2,37 +2,115 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="programming">
     <meta name="keywords" content="programming">    
     <title>prov site</title>
-    <script type="text/javascript" src="libs/modernizr.custom.47915.js"></script>
     <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- mdrnz -->
+    <script type="text/javascript" src="libs/modernizr.custom.47915.js"></script>
+    <!-- Bootstrap -->
+    <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
     <link type="text/css" href="css/style.css" rel="stylesheet" /> 
 <!--    
     <link type="text/css" href="css/le-frog/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
 </head>
 <body>
-<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <!-- libraries -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap.min.js"></script>
     <script type="text/javascript" src="//apis.google.com/js/client.js?onload=load"></script>
+    <!--
     <script type="text/javascript" src="libs/underscore-min.js"></script>
     <script type="text/javascript" src="libs/backbone-min.js"></script>
+    -->
     <script type="text/javascript" src="libs/require.js"></script>
-    
+    <!-- App -->
     <script type="text/javascript" src="js/backend.js"></script>
 
-<div id="header">Header</div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Black Armourer</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">Games</a></li>
+                    <li><a href="#contact">Open Source</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#contact">Bio</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-<div id="content">
+    <div class="container">
     
-</div>
+        <div class="row">
+            <div class="span8">
+                <h3>This place</h3>
+                <p>...is about Game and Software development.</p>
+            </div>    
+        </div>
+    
+        <div class="hero-unit">
+            <h1>Raging Gardens</h1>
+            <p>Raging Gardens is a HTML5/Javascript web browser game where a a hungry (ninja) rabbit farts too often.</p>
+            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        </div>
+        
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="span8">
+                <script type="text/template" id="micros-widget">
+                <% _.each(news, function(news_item){ %>
+                    <h2><%= news_item.get("title").$t %></h2>
+                    <p><%= news_item.get("content").$t %></p>
+                <% }); %>
+                </script>                
+            </div>
+            <div class="span4">
+                <h2>Coding</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+        </div>        
+        
+        <hr>
+        
+        <footer>
+            <p>Powered by Bootstrap. &copy; 2012 Petar Petrov</p>
+        </footer>        
+    </div>
 
-<div id="footer">Footer</div>
 
 </body>
 </html>

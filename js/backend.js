@@ -10,15 +10,17 @@ $(document).ready(function() {
      */           
     require([
         "js/gapi.js",
+        "js/views/microblogWidget.js"
     ], function() {            
         
         gapi_load(apiKey, function() {
-            console.log("GAPI loaded.");
-            
-            gapi_activities_read(userId, function(resp) {
-                console.log(resp);
-                $('#content').html(resp.items[0].title);
-            });
+//            console.log("GAPI loaded.");
+//            gapi_activities_read(userId, function(resp) {
+//                console.log(resp);
+//            });
+
+            var view = new microblogWidget();
+            view.render();
             
         });            
     });        
