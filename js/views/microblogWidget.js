@@ -1,4 +1,9 @@
 
+/**
+ * microblogWidget.js
+ * 
+ * Widget that displays Google Plus posts.
+ */
 define([
   'jquery',
   'underscore',
@@ -7,7 +12,19 @@ define([
   "text!tpl/gplus.tpl.html"
 ], function($, _, Backbone, GAPI) {
     
-    var microblogWidget = Backbone.View.extend({
+    var News = Backbone.Model.extend({
+            defaults: {
+                title: "Not specified",
+                content: "Not specified"
+            },
+            initialize: function() {
+            }
+    });
+    var newsCol = Backbone.Collection.extend({
+        model: News
+    });          
+    
+    microblogWidget = Backbone.View.extend({
         el: '#micros-widget',
     
         initialize: function() {
@@ -18,6 +35,7 @@ define([
             this.loadResults();
         },
         loadResults: function() {
+            var model = this;
             var userId = '101695111306977669026';
             // mark now loading
             this.isLoading = true;
@@ -25,9 +43,22 @@ define([
             gapi_activities_read(userId, function(resp) {
                 console.log(resp);
                 
-                _.each(resp.items, function() {
-                    $(that.el).append(_.template($('#micros-widget').html(), { news: [{title: 'bla', content: 'contenta'}] }));    
+                var col = new newsCol;
+                
+                _.each(resp.items, function(item) {
+//                          $(model.el).append(
+//                            _.template('#micros-widget', { news: [{title: 'bla', content: 'contenta'}] })
+//                            );  
+                    col.add(new News({title: item.title, content: item.updated}));
                 });
+                
+                $(model.el).html(
+                    _.template($('#micros-widget').html(), { news: col })
+                    );                      
+                
+                $('#micros-real').append($(model.el).html());
+                
+                model.isLoading = false;
             });
             
         },
@@ -38,7 +69,7 @@ define([
         onScroll: function() {
             alert('somebody scrolled!');
         }
-    });    
+    });   
 
     return microblogWidget;
 });
