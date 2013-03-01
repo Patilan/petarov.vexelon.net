@@ -56,7 +56,48 @@
     </div>
 
     <div id="container" class="container">
-    Hello <b><span data-bind="text: personName"></span></b> 
+    
+		<!-- Home -->
+		<div class="row">
+		    <div class="span2">
+			    <div class="well sidebar-nav">
+			    bla
+			    </div> 
+		    </div>
+		    <div class="span10">
+				<div class="hero-unit">
+				
+					<h3>This place</h3>
+					<p>...is about Game and Software development.</p>
+				
+				    <h1>Raging Gardens</h1>
+				    <p>Raging Gardens is a HTML5/Javascript web browser game where a a hungry (ninja) rabbit farts too often.</p>
+				    <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+				</div>
+				
+				<script type="text/html" id="template">
+				<span data-bind="html: data"></span>
+				</script>	
+				
+			    <div class="span6">
+			    	<h2>Microblog</h2>
+				    <div id="micros-widget" data-bind="foreach: posts">
+			            <span data-bind="html: content"></span>
+			            <p><a class="btn" href="#" data-bind="click: $parent.clickr">Read More &raquo;</a></p>
+					</div>
+			    </div>
+			    <div class="span3">
+			        <h2>Coding</h2>
+			        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			        <p><a class="btn" href="#">View details &raquo;</a></p>
+			    </div>					
+			</div> 
+		</div>
+		
+		<!-- Example row of columns -->
+		<div class="row">
+
+		</div>     
     </div>
     
     <!-- Footer -->
