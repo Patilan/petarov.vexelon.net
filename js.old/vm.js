@@ -2,8 +2,7 @@
 
 
 // Use this as a quick template for future modules
-define(['jquery', 'underscore', 'backbone'], function(
-    $, _, Backbone) {
+define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     
     var views = {};
     var create = function(context, name, View, options) {

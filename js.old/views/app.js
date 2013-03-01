@@ -10,10 +10,13 @@ define(['vm', 'text!tpl/home/main.html'], function(Vm, layoutTemplate) {
             var model = this;
             
             $(this.el).html(layoutTemplate);
-//            require(['views/header/menu'], function(HeaderMenuView) {
-//                var headerMenuView = Vm.create(model, 'HeaderMenuView', HeaderMenuView);
-//                headerMenuView.render();
-//            });
+            
+            require(['views/micros'], function(MicrosView) {
+                var microsView = Vm.create(model, 'MicrosView', MicrosView, {
+                    appView: model
+                });
+                microsView.render();
+            });
             require(['views/footer'], function(FooterView) {
                 // Pass the appView down into the footer so we can render the visualisation
                 var footerView = Vm.create(model, 'FooterView', FooterView, {

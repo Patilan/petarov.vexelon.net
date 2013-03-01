@@ -1,4 +1,4 @@
-<% news.each(function(news_item){ %>
-    <h2><%= news_item.get('title') %></h2>
-    <p><%= news_item.get('updated') %></p>
-<% }); %>
+{{#each item in news}}
+    <h2>{{item.title}}</h2>
+    <p>{{item.updated}}</p>
+{{/each}}

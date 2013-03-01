@@ -8,8 +8,8 @@
     <title>Black Armourer</title>
     <link rel="shortcut icon" href="favicon.ico" />
 
-    <!-- mdrnz -->
-    <script type="text/javascript" src="libs/modernizr.custom.47915.js"></script>
+    <!-- mdrnz 
+    <script type="text/javascript" src="libs/modernizr.custom.47915.js"></script -->
     <!-- Bootstrap -->
     <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
     <link type="text/css" href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -24,8 +24,14 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    <!-- light my fire -->
-    <script data-main="js/backend" src="libs/require.js"></script>    
+    <!-- light my fire 
+    <script data-main="js/backend" src="libs/require.js"></script>  -->  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="libs/handlebars.js"></script>
+    <script src="libs/ember-1.0.0-rc.1.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    
+    <script src="js/backend.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -55,8 +61,16 @@
       </div>
     </div>
 
-    <div id="container" class="container"></div>
+    <div id="container" class="container">
+        <script type="text/x-handlebars"> 
+           Hello <b>{{title}}</b> 
+        </script>        
+    </div>
     
-    <div id="footer"></div>
+    <!-- Footer -->
+    <hr>
+    <footer>
+        <p>Powered by Bootstrap. &copy; 2012 Petar Petrov</p>
+    </footer>   
 </body>
 </html>
