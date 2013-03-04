@@ -52,3 +52,21 @@ body {
 #footer .container, #footer .credit {
     margin: 20px 0;
 }
+
+@font-face {
+  font-family: "droids";
+  src: url(../fonts/looksirdroids.ttf) format("truetype");
+}
+
+.navbar {
+  font-family: "droids", Courier;
+  font-size: 140%;
+}
+
+h1,h2,h3,h4 {
+  color: #333;
+  font-family: Tahoma, sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid #ccc;
+}
+      

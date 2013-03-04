@@ -20,12 +20,12 @@ require.config({
     },
     waitSeconds: 10,
     shim: {
-    	 'bootstrap': ['jquery'],
-    	 'gh3': ['underscore-min'],
+    	 'bootstrap': ['jquery']
+    	 //'gh3': ['underscore-min'],
     }
   });
     
-require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'gh3', 'plugin/domReady!'], function(ko, goog) {
+require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'], function(ko, goog) {
 	
     var apiKey = 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8';
     var userId = '101695111306977669026';	
@@ -42,49 +42,49 @@ require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'gh3', 'plugin/dom
 //		ko.applyBindings(myViewModel);
 //	});
 	
-	GoogleAPI.listActivities(userId, {'maxResults': 3}, function(error, result) {
-		console.log(result);
-		
-		var posts1 = [];
-		
-		for (var i = 0; i < result.items.length; i++) {
-			posts1.push( {content: result.items[i].object.content, link: result.items[i].url } );
-		}
-		
-		// GitHub
-		$.ajax({dataType: 'jsonp',
-			jsonp: 'callback',
-			url: 'https://api.github.com/users/petarov/repos', 
-			data: { 'type': 'public', 'sort': 'pushed', 'direction': 'desc' },
-			crossDomain: 'true'
-	  	}).done(function(data) {
-//				console.log(data);
-	  			
-				var commits1 = [];
-				
-				for (var i = 0; i < data.data.length; i++) {
-					commits1.push( {content: data.data[i].name, link: data.data[i].html_url } );
-				}
-				
-				ko.applyBindings({
-					posts: ko.observableArray(posts1),
-					clickr: function(url) {
-						window.location.href = url.link;
-					},
-					commits: ko.observableArray(commits1),
-					clickr1: function(url) {
-						window.location.href = url.link;
-					}				
-			});
-				
-				
-	  	}).fail(function(err) {
-	  		console.log('fail');
-	  		console.log(err);
-	  	});		
-		
-		
-	});	
+//	GoogleAPI.listActivities(userId, {'maxResults': 3}, function(error, result) {
+//		console.log(result);
+//		
+//		var posts1 = [];
+//		
+//		for (var i = 0; i < result.items.length; i++) {
+//			posts1.push( {content: result.items[i].object.content, link: result.items[i].url } );
+//		}
+//		
+//		// GitHub
+//		$.ajax({dataType: 'jsonp',
+//			jsonp: 'callback',
+//			url: 'https://api.github.com/users/petarov/repos', 
+//			data: { 'type': 'public', 'sort': 'pushed', 'direction': 'desc' },
+//			crossDomain: 'true'
+//	  	}).done(function(data) {
+////				console.log(data);
+//	  			
+//				var commits1 = [];
+//				
+//				for (var i = 0; i < data.data.length; i++) {
+//					commits1.push( {content: data.data[i].name, link: data.data[i].html_url } );
+//				}
+//				
+//				ko.applyBindings({
+//					posts: ko.observableArray(posts1),
+//					clickr: function(url) {
+//						window.location.href = url.link;
+//					},
+//					commits: ko.observableArray(commits1),
+//					clickr1: function(url) {
+//						window.location.href = url.link;
+//					}				
+//			});
+//				
+//				
+//	  	}).fail(function(err) {
+//	  		console.log('fail');
+//	  		console.log(err);
+//	  	});		
+//		
+//		
+//	});	
 	
 
 });
