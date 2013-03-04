@@ -1,3 +1,5 @@
+"use strict"; // jshint ;_;
+
 require.config({
 	//By default load any module IDs from js/lib
 	baseUrl: 'js/lib',
@@ -27,14 +29,18 @@ require.config({
     
 require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'], function(ko, goog) {
 	
-    var apiKey = 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8';
-    var userId = '101695111306977669026';	
-	var GoogleAPI = new GooglePlusAPI(apiKey);
+//    var apiKey = 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8';
+//    var userId = '101695111306977669026';	
+//	var GoogleAPI = new GooglePlusAPI(apiKey);
 	
-	var myViewModel = {
-		    personName: 'Bob',
-		    personAge: 123
-		};
+	require(['app/mv_home'], function(HomeViewModel) {
+		var home = new HomeViewModel();
+		
+		home.init(function(that) {
+			console.log(that);
+			ko.applyBindings(that);	
+		});
+	});
 	
 //	GoogleAPI.getPerson(userId, {}, function(error, result) {
 //		console.log(result);
