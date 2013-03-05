@@ -51,7 +51,9 @@ body {
 
 @font-face {
   font-family: "droids";
-  src: url(../fonts/looksirdroids.ttf) format("truetype");
+  src: url(../fonts/Young.ttf) format("truetype");
+  font-family: "roboto-r";
+  src: url(../fonts/Roboto-Regular.ttf) format("truetype");
 }
 
 .navbar {
@@ -61,7 +63,7 @@ body {
 
 h1,h2,h3,h4 {
   color: #333;
-  font-family: Tahoma, sans-serif;
+  font-family: "droids", Tahoma, sans-serif;
   font-weight: 400;
   border-bottom: 1px solid #ccc;
 }

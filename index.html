@@ -87,16 +87,12 @@
 					<h3>Petar Petrov</h3>
 					<p>...writes games, software, and sometimes he's funny.</p>
 				</div>
-				
-				<script type="text/html" id="template">
-				<span data-bind="html: data"></span>
-				</script>	
-				
 			    <div class="span8">
 			    	<h2>Microblog</h2>
 				    <div id="micros-widget" data-bind="foreach: posts">
-			            <span data-bind="html: content"></span>
-			            <p><a class="btn" href="#" data-bind="click: $parent.clickr">Read More &raquo;</a></p>
+			            <p data-bind="html: content"></p>
+			            <p><a class="btn btn-link" href="#" data-bind="click: $parent.clickr">Read More &raquo;</a></p>
+			            <hr>
 					</div>
 			    </div>
 			</div> 
