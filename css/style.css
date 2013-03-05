@@ -45,11 +45,7 @@ body {
 
   /* Custom page CSS */
 
-#footer .container {
-    width: auto;
-    max-width: 680px;
-}
-#footer .container, #footer .credit {
+.container .credit {
     margin: 20px 0;
 }
 

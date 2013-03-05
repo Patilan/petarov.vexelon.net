@@ -33,11 +33,16 @@
                 <span class="icon-bar"></span>
             </a>
             <a class="brand" href="#">5R Armourer</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">Games</a></li>
-                    <li><a href="#contact">Open Source</a></li>
+            <div class="nav-collapse collapse" id="nav-menu">
+                <ul class="nav" data-bind="foreach: navanchors">
+                <li data-bind="attr: { id: lid }" class="navlis">
+                	<a href="#" data-bind="click: $parent.gotoAnchor"><span data-bind="text: name"></span></a>
+                </li>
+                </ul>
+                
+                    <!--   li id="s-home" class="active"><a href="#" data-bind="click: goToHome">Home</a></li>
+                    <li id="s-games"><a href="#about" data-bind="click: goToGames">Games</a></li>
+                    <li id="s-oss"><a href="#contact" data-bind="click: goToHome">Open Source</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -45,7 +50,7 @@
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul -->
             </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -54,10 +59,19 @@
     <div id="container" class="container">
     
 		<!-- Home -->
-		<div class="row">
+		<div id="pane-home" class="row" data-bind="visible: shouldShowMessage">
+		
 		    <div class="span3">
 			    <div class="well sidebar-nav">
+			    <p>
 			    <img src="img/face.png" style="width: 200px; heiht: 180px;" class="img-polaroid" />
+			    </p>
+			    <p>
+					<!-- Fügen Sie diesen Code dort ein, wo die Box dargestellt werden soll. -->
+					<a href="//plus.google.com/101695111306977669026?prsrc=3" rel="publisher" style="text-decoration:none;">
+					<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/></a>			    
+			    	<iframe src="http://ghbtns.com/github-btn.html?user=petarov&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+  				</p>
 			    </div>
 			    <div class="span3">
 			    	<h2>Coding</h2>
@@ -86,18 +100,45 @@
 					</div>
 			    </div>
 			</div> 
+			
 		</div>
 		
-		<!-- Example row of columns -->
-		<div class="row">
-
-		</div>     
+		<!-- Games -->
+		<div id="pane-games" class="row">
+		    <div class="row-fluid">
+				<div class="hero-unit">
+					<h3>Games</h3>
+					<p>These are some of the amateur games that I worked on over the years.</p>
+				</div>
+			</div>
+			
+		    <div class="row-fluid">
+		    <ul id="game-widget" class="thumbnails" data-bind="foreach: games">
+			    <li class="span2">
+				    <div class="thumbnail">
+				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
+				    	<div class="caption">
+				    	<h3 data-bind="text: title"></h3>
+			            <p data-bind="text: desc"></p>
+			            <p>
+			            <a href="#" class="btn btn-link">Web</a>
+			            <a href="#" class="btn btn-link">Source</a>
+			            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
+			            </p>
+				    	</div>
+				    </div>
+				</li>
+		    </ul>
+			</div>  
+	</div>
+		
+	<!-- End: Container -->
     </div>
-    
     <!-- Footer -->
-    <hr>
-    <footer>
-        <p>Powered by Bootstrap. &copy; 2012 Petar Petrov</p>
-    </footer>   
+    <div id="footer">
+    <div class="container">
+		<p class="muted credit">Powered by <a href="">Bootstrap</a>. &copy; 2012 Petar Petrov</p>
+	</div>
+    </div>   
 </body>
 </html>

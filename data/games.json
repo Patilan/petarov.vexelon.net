@@ -1,3 +1,36 @@
 {
-	"games" : []
+	"games": [
+		{
+			title: 'Raging Gardens Facebook',
+			desc: 'Facebook port of Raging Gardens - HTML5/Javascript web browser game where a hungry (ninja) rabbit farts too often.',
+			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
+			page_url: 'http://apps.facebook.com/raging_gardens/',
+			source_url: 'https://github.com/petarov/RagingGardensFB',
+			downloads_url: 'http://apps.facebook.com/raging_gardens/'
+		},		
+		{
+			title: 'Raging Gardens',
+			desc: 'Raging Gardens is a HTML5/Javascript web browser game where a a hungry (ninja) rabbit farts too often.',
+			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
+			page_url: 'http://petarov.github.com/game-off-2012/',
+			source_url: 'https://github.com/petarov/game-off-2012',
+			downloads_url: 'http://petarov.github.com/game-off-2012/'
+		},	
+		{
+			title: 'Savage Wheels',
+			desc: 'Savage Wheels is 2D car crashing game similar to the old classic Destruction Derby.',
+			thumbnail: 'http://kenamick.com/savagewheels/images/shot6.jpg',
+			page_url: 'https://code.google.com/p/savagewheels/',
+			source_url: 'https://github.com/petarov/savagewheels',
+			downloads_url: 'https://code.google.com/p/savagewheels/downloads/list'
+		},
+		{
+			title: 'DesktopDefender2',
+			desc: 'A side-scroller space shooter game',
+			thumbnail: 'http://kenamick.com/dd2/images/shot1.jpg',
+			page_url: 'https://code.google.com/p/desktopdefender2/',
+			source_url: 'https://code.google.com/p/desktopdefender2/',
+			downloads_url: 'https://code.google.com/p/desktopdefender2/downloads/list'
+		}		
+	]
 }

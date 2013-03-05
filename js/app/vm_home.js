@@ -11,13 +11,18 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		// Data
 		var self = this;
 		
+		self.shouldShowMessage = false;
+		
 		self.ghURL = 'https://api.github.com';
 		self.maxGPlusPosts = 3;
-		
 		self.posts = ko.observableArray();
 		self.commits = ko.observableArray();
 		
 		// Behaviours
+		self.render = function(to) {
+			ko.applyBindings(self, $(to)[0]);
+		};	
+		
 		self.clickr = function(url) {
 			window.location.href = url.link;
 		};
@@ -25,7 +30,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			window.location.href = url.link;
 		};
 		
-		// Client-side routines
+		// Constructor
 		self.init = function(callback) {
 			var that = this;
 			
@@ -51,6 +56,8 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			});
 
 		};
+		
+		// Client-side routines
 		
 		/*
 		 * Fetch GPlus posts

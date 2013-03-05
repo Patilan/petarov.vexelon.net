@@ -36,19 +36,25 @@ require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'
 //    var userId = '101695111306977669026';	
 //	var GoogleAPI = new GooglePlusAPI(apiKey);
 	
-	require(['app/vm_home'], function(HomeViewModel) {
-		var home = new HomeViewModel();
+	require(['app/vm_nav', 'app/vm_games'], function(NavViewModel, GamesViewModel) {
+		var nav = new NavViewModel();
+		nav.render('#nav-menu');
 		
-		home.init(function(that) {
-			console.log(that);
-			ko.applyBindings(that);	
+		var games = new GamesViewModel();
+		games.init(function(that) {
+			games.render('#pane-games');
 		});
+		
+		
 	});
 	
-//	GoogleAPI.getPerson(userId, {}, function(error, result) {
-//		console.log(result);
-//		myViewModel.personName = result.displayName;
-//		ko.applyBindings(myViewModel);
+//	require(['app/vm_home'], function(HomeViewModel) {
+////		var home = new HomeViewModel();
+////		home.render('#pane-home');
+//		
+////		home.init(function(that) {
+////			that.render('#pane-home');
+////		});
 //	});
 	
 });
