@@ -15,6 +15,7 @@ require.config({
     	jquery: "http://code.jquery.com/jquery-1.9.1.min",
         knockout: 'knockout-2.2.1',
         bootstrap: 'bootstrap.min',
+        underscore: 'underscore-min',
         // Require JS plugins
         goog: '../plugins/goog',
         async: '../plugins/async',
@@ -22,10 +23,12 @@ require.config({
     },
     waitSeconds: 10,
     shim: {
-    	 'bootstrap': ['jquery']
-    	 //'gh3': ['underscore-min'],
+    	'bootstrap': ['jquery'],
+    	'underscore': {
+    		exports: '_'
+    	}
     }
-  });
+});
     
 require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'], function(ko, goog) {
 	
@@ -33,7 +36,7 @@ require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'
 //    var userId = '101695111306977669026';	
 //	var GoogleAPI = new GooglePlusAPI(apiKey);
 	
-	require(['app/mv_home'], function(HomeViewModel) {
+	require(['app/vm_home'], function(HomeViewModel) {
 		var home = new HomeViewModel();
 		
 		home.init(function(that) {
@@ -48,49 +51,4 @@ require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'
 //		ko.applyBindings(myViewModel);
 //	});
 	
-//	GoogleAPI.listActivities(userId, {'maxResults': 3}, function(error, result) {
-//		console.log(result);
-//		
-//		var posts1 = [];
-//		
-//		for (var i = 0; i < result.items.length; i++) {
-//			posts1.push( {content: result.items[i].object.content, link: result.items[i].url } );
-//		}
-//		
-//		// GitHub
-//		$.ajax({dataType: 'jsonp',
-//			jsonp: 'callback',
-//			url: 'https://api.github.com/users/petarov/repos', 
-//			data: { 'type': 'public', 'sort': 'pushed', 'direction': 'desc' },
-//			crossDomain: 'true'
-//	  	}).done(function(data) {
-////				console.log(data);
-//	  			
-//				var commits1 = [];
-//				
-//				for (var i = 0; i < data.data.length; i++) {
-//					commits1.push( {content: data.data[i].name, link: data.data[i].html_url } );
-//				}
-//				
-//				ko.applyBindings({
-//					posts: ko.observableArray(posts1),
-//					clickr: function(url) {
-//						window.location.href = url.link;
-//					},
-//					commits: ko.observableArray(commits1),
-//					clickr1: function(url) {
-//						window.location.href = url.link;
-//					}				
-//			});
-//				
-//				
-//	  	}).fail(function(err) {
-//	  		console.log('fail');
-//	  		console.log(err);
-//	  	});		
-//		
-//		
-//	});	
-	
-
 });
