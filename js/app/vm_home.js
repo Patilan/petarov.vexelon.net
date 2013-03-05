@@ -7,12 +7,12 @@
  */
 define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 	
-	function HomeViewModel() {
+	function HomeViewModel(conf) {
 		// Data
 		var self = this;
 		
-		self.ghURL = 'https://api.github.com';
-		self.maxGPlusPosts = 3;
+		self.config = conf;
+		
 		self.posts = ko.observableArray();
 		self.commits = ko.observableArray();
 		
@@ -67,7 +67,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		    var userId = '101695111306977669026';	
 			var GoogleAPI = new GooglePlusAPI(apiKey);
 			
-			GoogleAPI.listActivities(userId, {'maxResults': that.maxGPlusPosts}, function(error, result) {
+			GoogleAPI.listActivities(userId, {'maxResults': that.config.google.maxPosts}, function(error, result) {
 				console.log(result);
 				
 				_.each(result.items, function(item) {
@@ -92,7 +92,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			// GitHub
 			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
-				url: that.ghURL + '/users/petarov/repos', 
+				url: that.config.github.apiUrl + '/users/petarov/repos', 
 				data: { 'type': 'public', 'sort': 'pushed', 'direction': 'desc' },
 				crossDomain: 'true'
 		  	}).done(function(data) {

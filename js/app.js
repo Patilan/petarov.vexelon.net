@@ -30,11 +30,7 @@ require.config({
     }
 });
     
-require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'], function(ko, goog) {
-	
-//    var apiKey = 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8';
-//    var userId = '101695111306977669026';	
-//	var GoogleAPI = new GooglePlusAPI(apiKey);
+require(['knockout', 'app/conf', 'bootstrap', 'plugin/domReady!'], function(ko, conf) {
 	
 	require(['app/vm_nav', 'app/vm_home', 'app/vm_games', 'app/vm_oss'], 
 			function(NavViewModel, HomeViewModel, GamesViewModel, OSSViewModel) {
@@ -43,11 +39,11 @@ require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'
 		nav.init();
 		nav.render('#nav-menu');
 		
-		var home = new HomeViewModel();
-		home.render('#pane-home');
-//		home.init(function(that) {
-//			that.render('#pane-home');
-//		});		
+		var home = new HomeViewModel(conf);
+//		home.render('#pane-home');
+		home.init(function(that) {
+			that.render('#pane-home');
+		});		
 		
 		var games = new GamesViewModel();
 		games.init(function(that) {
