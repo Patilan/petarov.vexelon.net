@@ -1,3 +1,12 @@
 {
-	"oss" : []
+	"oss" : [
+		{
+			title: 'EmEx',
+			desc: 'Email Extended (Emex) is a new generation E-Mail client.',
+			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
+			page_url: 'http://code.google.com/p/emex/',
+			source_url: 'https://github.com/petarov/emex',
+			downloads_url: 'https://code.google.com/p/emex/downloads/list'
+		}	
+	]
 }

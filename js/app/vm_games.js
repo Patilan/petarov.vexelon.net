@@ -45,7 +45,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 			
 			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
-				url: that.originURL + 'data/fetch.php?w=games', 
+				url: that.originURL + 'data/games', 
 				crossDomain: 'false'
 		  	}).done(function(data) {
 		  		that.games = ko.observableArray(data.games);

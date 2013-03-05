@@ -11,8 +11,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		// Data
 		var self = this;
 		
-		self.shouldShowMessage = false;
-		
 		self.ghURL = 'https://api.github.com';
 		self.maxGPlusPosts = 3;
 		self.posts = ko.observableArray();

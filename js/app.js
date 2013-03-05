@@ -36,25 +36,29 @@ require(['knockout', 'bootstrap', 'googleplusapi.compressed', 'plugin/domReady!'
 //    var userId = '101695111306977669026';	
 //	var GoogleAPI = new GooglePlusAPI(apiKey);
 	
-	require(['app/vm_nav', 'app/vm_games'], function(NavViewModel, GamesViewModel) {
+	require(['app/vm_nav', 'app/vm_home', 'app/vm_games', 'app/vm_oss'], 
+			function(NavViewModel, HomeViewModel, GamesViewModel, OSSViewModel) {
+		
 		var nav = new NavViewModel();
+		nav.init();
 		nav.render('#nav-menu');
+		
+		var home = new HomeViewModel();
+		home.render('#pane-home');
+//		home.init(function(that) {
+//			that.render('#pane-home');
+//		});		
 		
 		var games = new GamesViewModel();
 		games.init(function(that) {
 			games.render('#pane-games');
 		});
 		
+		var oss = new OSSViewModel();
+		oss.init(function(that) {
+			oss.render('#pane-oss');
+		});		
+		
 		
 	});
-	
-//	require(['app/vm_home'], function(HomeViewModel) {
-////		var home = new HomeViewModel();
-////		home.render('#pane-home');
-//		
-////		home.init(function(that) {
-////			that.render('#pane-home');
-////		});
-//	});
-	
 });

@@ -59,7 +59,7 @@
     <div id="container" class="container">
     
 		<!-- Home -->
-		<div id="pane-home" class="row" data-bind="visible: shouldShowMessage">
+		<div id="pane-home" class="row">
 		
 		    <div class="span3">
 			    <div class="well sidebar-nav">
@@ -104,7 +104,7 @@
 		</div>
 		
 		<!-- Games -->
-		<div id="pane-games" class="row">
+		<div id="pane-games" class="row" style="display: none;">
 		    <div class="row-fluid">
 				<div class="hero-unit">
 					<h3>Games</h3>
@@ -113,7 +113,7 @@
 			</div>
 			
 		    <div class="row-fluid">
-		    <ul id="game-widget" class="thumbnails" data-bind="foreach: games">
+		    <ul class="thumbnails" data-bind="foreach: games">
 			    <li class="span2">
 				    <div class="thumbnail">
 				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
@@ -121,23 +121,52 @@
 				    	<h3 data-bind="text: title"></h3>
 			            <p data-bind="text: desc"></p>
 			            <p>
-			            <a href="#" class="btn btn-link">Web</a>
-			            <a href="#" class="btn btn-link">Source</a>
-			            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
+				            <a href="#" class="btn btn-link">Web</a>
+				            <a href="#" class="btn btn-link">Source</a>
+				            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
 			            </p>
 				    	</div>
 				    </div>
 				</li>
 		    </ul>
 			</div>  
-	</div>
+		</div>
+		
+		<!-- OSS -->
+		<div id="pane-oss" class="row" style="display: none;">
+		    <div class="row-fluid">
+				<div class="hero-unit">
+					<h3>Open Source</h3>
+					<p>Some of my projects.</p>
+				</div>
+			</div>
+			
+		    <div class="row-fluid">
+		    <ul class="thumbnails" data-bind="foreach: ossprojects">
+			    <li class="span2">
+				    <div class="thumbnail">
+				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
+				    	<div class="caption">
+				    	<h3 data-bind="text: title"></h3>
+			            <p data-bind="text: desc"></p>
+			            <p>
+				            <a href="#" class="btn btn-link">Web</a>
+				            <a href="#" class="btn btn-link">Source</a>
+				            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
+			            </p>
+				    	</div>
+				    </div>
+				</li>
+		    </ul>
+			</div>  
+		</div>		
 		
 	<!-- End: Container -->
     </div>
     <!-- Footer -->
     <div id="footer">
     <div class="container">
-		<p class="muted credit">Powered by <a href="">Bootstrap</a>. &copy; 2012 Petar Petrov</p>
+		<p class="muted credit">Powered by <a href="">Bootstrap</a>,  <a href="http://knockoutjs.com/">Knockout</a>. &copy; 2012 Petar Petrov</p>
 	</div>
     </div>   
 </body>

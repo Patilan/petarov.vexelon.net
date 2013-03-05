@@ -1,0 +1,20 @@
+Options -Indexes
+
+Order Deny,Allow 
+Allow from All 
+
+<Files "*.json"> 
+     Order Deny,Allow 
+     Deny from All
+</Files>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /petarov/data
+	
+	RewriteRule ^oss(.*)$		fetch.php?w=oss$1 [L,QSA]
+	RewriteRule ^games(.*)$		fetch.php?w=games$1 [L,QSA]
+	
+	RewriteCond %{THE_REQUEST}	fetch\.php
+	RewriteRule ^ - [L,F]
+</IfModule>
