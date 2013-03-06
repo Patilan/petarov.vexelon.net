@@ -16,18 +16,20 @@ require.config({
         knockout: 'knockout-2.2.1',
         bootstrap: 'bootstrap.min',
         underscore: 'underscore-min',
+        jfeed: 'jquery.jfeed.pack',
         // Require JS plugins
         goog: '../plugins/goog',
         async: '../plugins/async',
         propertyParser: '../plugins/propertyParser',
     },
-    waitSeconds: 10,
     shim: {
     	'bootstrap': ['jquery'],
     	'underscore': {
     		exports: '_'
     	}
-    }
+    },
+    waitSeconds: 10,
+    urlArgs: "bust=" +  (new Date()).getTime()
 });
     
 require(['knockout', 'app/conf', 'bootstrap', 'plugin/domReady!'], function(ko, conf) {

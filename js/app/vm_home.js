@@ -41,9 +41,9 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 					return;
 				}
 				
-				that.fetchGithub(function(err) {
+				that.fetchGithubAtom(function(err) {
 					if (err) {
-						console.log('fetchGithub failed!');
+						console.log('fetchGithubAtom failed!');
 						
 						// TODO
 						return;
@@ -68,7 +68,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			var GoogleAPI = new GooglePlusAPI(apiKey);
 			
 			GoogleAPI.listActivities(userId, {'maxResults': that.config.google.maxPosts}, function(error, result) {
-				console.log(result);
+//				console.log(result);
 				
 				_.each(result.items, function(item) {
 					that.posts.push( {content: item.object.content, link: item.url } );
@@ -94,7 +94,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 				jsonp: 'callback',
 				url: that.config.github.apiUrl + '/users/petarov/repos', 
 				data: { 'type': 'public', 'sort': 'pushed', 'direction': 'desc' },
-				crossDomain: 'true'
 		  	}).done(function(data) {
 	//				console.log(data);
 		  		
@@ -109,7 +108,31 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		  		callback(error);
 		  	});				
 		};
-		
+		/*
+		 * Fetch GitHub Atom/RSS info
+		 */
+		self.fetchGithubAtom = function(callback) {
+			var that = this;
+			
+			// GitHub
+			$.ajax({dataType: 'json',
+				jsonp: 'callback',
+				url: location + 'data/atom', 
+				data: { 'url': that.config.github.atomUrl, 'callback': '?' },
+		  	}).done(function(data) {
+				console.log(data);
+		  		
+//				_.each(data.data, function(item) {
+//					that.commits.push( {content: item.name, link: item.html_url } );
+//				});		  		
+		  			
+				// notify
+				callback(null);
+					
+		  	}).fail(function(error) {
+		  		callback(error);
+		  	});				
+		};		
 	};
 	
 	return HomeViewModel;

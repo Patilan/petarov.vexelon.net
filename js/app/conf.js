@@ -13,7 +13,8 @@ define([], function() {
     			maxPosts: 3,
     		},
     		github: {
-    			apiUrl: 'https://api.github.com'
+    			apiUrl: 'https://api.github.com',
+    			atomUrl: 'https://github.com/petarov.atom'
     		}
     };
     
