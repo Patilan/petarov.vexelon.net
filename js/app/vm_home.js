@@ -115,12 +115,20 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			var that = this;
 			
 			// GitHub
-			$.ajax({dataType: 'json',
+			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
 				url: location + 'data/atom', 
-				data: { 'url': that.config.github.atomUrl, 'callback': '?' },
+				data: { 'url': that.config.github.atomUrl },
 		  	}).done(function(data) {
 				console.log(data);
+				
+				var xmldoc = $.parseXML(data.xml);
+				$xml = $(xmldoc);
+				
+				$xml.find('entry').find('content').each(function(node) {
+					that.commits.push( {content: $(this).text(), link: '' } );
+//					console.log($(this).text());
+				});
 		  		
 //				_.each(data.data, function(item) {
 //					that.commits.push( {content: item.name, link: item.html_url } );

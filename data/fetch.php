@@ -25,7 +25,7 @@ switch($who) {
 		}
 		curl_close($curl);
 		
-		echo $xml_output;
+		echo $_GET['callback'] . '(' . json_encode(array('xml' => $xml_output)) . ')';
 		exit;
 	default:
 		header("HTTP/1.0 404 Not Found");
