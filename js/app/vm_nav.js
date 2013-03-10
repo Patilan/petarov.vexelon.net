@@ -14,10 +14,10 @@ define(['knockout', 'underscore'], function(ko, _) {
 		
 		self.navanchors = ko.observableArray(
 				[
-				 {lid: 'nav-home', name: 'Home', paneid: 'pane-home'}, 
-				 {lid: 'nav-games', name: 'Games', paneid: 'pane-games'}, 
-				 {lid: 'nav-oss', name: 'Open Source', paneid: 'pane-oss'},
-				 {lid: 'nav-about', name: 'About', paneid: 'pane-about'}
+				 {lid: 'nav-home', name: 'Home', paneid: 'pane-home', link: '#home'}, 
+				 {lid: 'nav-games', name: 'Games', paneid: 'pane-games', link: '#games'}, 
+				 {lid: 'nav-oss', name: 'Open Source', paneid: 'pane-oss', link: '#oss'},
+				 {lid: 'nav-about', name: 'About', paneid: 'pane-about', link: '#about'}
 				 ]
 				);
 		
@@ -27,9 +27,10 @@ define(['knockout', 'underscore'], function(ko, _) {
 			$('#' + to.lid).toggleClass('active');
 			$('#' + to.lid).siblings().removeClass('active');
 			
-			$('#container').children().hide();
+			location.href=to.link;
 			
-			$('#' + to.paneid).show();
+			//$('#container').children().hide();
+			//$('#' + to.paneid).show();
 		};
 		
 		// Constructor

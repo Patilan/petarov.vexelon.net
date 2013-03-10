@@ -17,6 +17,7 @@ require.config({
         bootstrap: 'bootstrap.min',
         underscore: 'underscore-min',
         jfeed: 'jquery.jfeed.pack',
+        pager: 'pager.min',
         // Require JS plugins
         goog: '../plugins/goog',
         async: '../plugins/async',
@@ -32,7 +33,7 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime()
 });
     
-require(['knockout', 'app/conf', 'bootstrap', 'plugin/domReady!'], function(ko, conf) {
+require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], function(ko, conf, pager) {
 	
 	require(['app/vm_nav', 'app/vm_home', 'app/vm_games', 'app/vm_oss'], 
 			function(NavViewModel, HomeViewModel, GamesViewModel, OSSViewModel) {
@@ -41,22 +42,23 @@ require(['knockout', 'app/conf', 'bootstrap', 'plugin/domReady!'], function(ko, 
 		nav.init();
 		nav.render('#nav-menu');
 		
-		var home = new HomeViewModel(conf);
+		var home = new HomeViewModel(pager, conf);
 //		home.render('#pane-home');
 		home.init(function(that) {
 			that.render('#pane-home');
 		});		
 		
-		var games = new GamesViewModel();
+		var games = new GamesViewModel(pager);
 		games.init(function(that) {
 			games.render('#pane-games');
 		});
 		
-		var oss = new OSSViewModel();
+		var oss = new OSSViewModel(pager);
 		oss.init(function(that) {
 			oss.render('#pane-oss');
 		});		
 		
+		pager.start();
 		
 	});
 });

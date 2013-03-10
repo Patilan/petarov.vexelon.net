@@ -7,12 +7,12 @@
  */
 define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 	
-	function HomeViewModel(conf) {
-		// Data
+	function HomeViewModel(pager, conf) {
 		var self = this;
 		
+		// Data
 		self.config = conf;
-		
+		self.pager = pager;
 		self.posts = ko.observableArray();
 		self.commits = ko.observableArray();
 		
@@ -52,7 +52,8 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 					callback(that);
 				});
 			});
-
+			
+			self.pager.extendWithPage(that);
 		};
 		
 		// Client-side routines
@@ -114,10 +115,12 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		self.fetchGithubAtom = function(callback) {
 			var that = this;
 			
+			var srv = 'http://' + window.location.hostname + window.location.pathname;
+			
 			// GitHub
 			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
-				url: location + 'data/atom', 
+				url: srv + 'data/atom', 
 				data: { 'url': that.config.github.atomUrl },
 		  	}).done(function(data) {
 				console.log(data);

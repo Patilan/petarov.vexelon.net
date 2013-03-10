@@ -36,7 +36,9 @@
             <div class="nav-collapse collapse" id="nav-menu">
                 <ul class="nav" data-bind="foreach: navanchors">
                 <li data-bind="attr: { id: lid }" class="navlis">
-                	<a href="#" data-bind="click: $parent.gotoAnchor"><span data-bind="text: name"></span></a>
+                	<a href="#" data-bind="attr: { href: link }, click: $parent.gotoAnchor">
+                	<span data-bind="text: name"></span>
+                	</a>
                 </li>
                 </ul>
                 
@@ -59,7 +61,7 @@
     <div id="container" class="container">
     
 		<!-- Home -->
-		<div id="pane-home" class="row">
+		<div id="pane-home" class="row" data-bind="page: {id: 'home'}">
 		
 		    <div class="span3">
 			    <div class="well sidebar-nav">
@@ -102,7 +104,7 @@
 		</div>
 		
 		<!-- Games -->
-		<div id="pane-games" class="row" style="display: none;">
+		<div id="pane-games" class="row" data-bind="page: {id: 'games'}">
 		    <div class="row-fluid">
 				<div class="hero-unit">
 					<h3>Games</h3>
@@ -113,7 +115,7 @@
 			
 		    <div class="row-fluid">
 		    <ul class="thumbnails" data-bind="foreach: games">
-			    <li class="span3">
+			    <li class="span3" style="display: block">
 				    <div class="thumbnail">
 				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
 				    	<div class="caption">
@@ -132,7 +134,7 @@
 		</div>
 		
 		<!-- OSS -->
-		<div id="pane-oss" class="row" style="display: none;">
+		<div id="pane-oss" class="row" data-bind="page: {id: 'oss'}">
 		    <div class="row-fluid">
 				<div class="hero-unit">
 					<h3>Open Source</h3>

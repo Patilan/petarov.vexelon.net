@@ -7,11 +7,13 @@
  */
 define(['knockout', 'underscore'], function(ko, _) {
 	
-	function GamesViewModel() {
+	function GamesViewModel(pager) {
 		var self = this;
 		
 		// Data
-		self.originURL = location; //.protocol + window.location.hostname + ;
+		self.pager = pager;
+		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
+		//location; //.protocol + window.location.hostname + ;
 		self.games = ko.observableArray();
 		
 		// Constructor
@@ -28,6 +30,8 @@ define(['knockout', 'underscore'], function(ko, _) {
 				
 				callback(that);
 			});
+			
+			self.pager.extendWithPage(that);
 		};
 		
 		// Behaviours
