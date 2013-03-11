@@ -17,6 +17,7 @@ require.config({
         bootstrap: 'bootstrap.min',
         underscore: 'underscore-min',
         jfeed: 'jquery.jfeed.pack',
+        hashchange: 'jquery.ba-hashchange.min',
         pager: 'pager.min',
         // Require JS plugins
         goog: '../plugins/goog',
@@ -24,10 +25,12 @@ require.config({
         propertyParser: '../plugins/propertyParser',
     },
     shim: {
+    	'hashchange': ['jquery'],
     	'bootstrap': ['jquery'],
     	'underscore': {
     		exports: '_'
-    	}
+    	},
+    	'pager': ['hashchange']
     },
     waitSeconds: 10,
     urlArgs: "bust=" +  (new Date()).getTime()
@@ -38,7 +41,10 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 	require(['app/vm_nav', 'app/vm_home', 'app/vm_games', 'app/vm_oss'], 
 			function(NavViewModel, HomeViewModel, GamesViewModel, OSSViewModel) {
 		
-		var nav = new NavViewModel();
+		// use #!/ instead of the default #
+		//pager.Href.hash = '#!/';		
+		
+		var nav = new NavViewModel(pager);
 		nav.init();
 		nav.render('#nav-menu');
 		
@@ -46,7 +52,7 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 //		home.render('#pane-home');
 		home.init(function(that) {
 			that.render('#pane-home');
-		});		
+		});
 		
 		var games = new GamesViewModel(pager);
 		games.init(function(that) {
@@ -56,9 +62,13 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 		var oss = new OSSViewModel(pager);
 		oss.init(function(that) {
 			oss.render('#pane-oss');
-		});		
+		});
 		
-		pager.start();
+		var viewModel = {
+				
+		};
+		pager.extendWithPage(viewModel);
+		pager.startHashChange('home');
 		
 	});
 });

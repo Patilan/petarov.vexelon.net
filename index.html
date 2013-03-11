@@ -13,6 +13,7 @@
     <!-- Bootstrap -->
     <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
     <link type="text/css" href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link type="text/css" href="css/pager.css" rel="stylesheet" /> 
     <link type="text/css" href="css/style.css" rel="stylesheet" /> 
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -34,17 +35,17 @@
             </a>
             <a class="brand" href="#">PETAROV</a>
             <div class="nav-collapse collapse" id="nav-menu">
-                <ul class="nav" data-bind="foreach: navanchors">
+                <!-- ul class="nav" data-bind="foreach: navanchors">
                 <li data-bind="attr: { id: lid }" class="navlis">
-                	<a href="#" data-bind="attr: { href: link }, click: $parent.gotoAnchor">
+                	<a data-bind="page-href: {href: link}, click: $parent.gotoAnchor">
                 	<span data-bind="text: name"></span>
                 	</a>
                 </li>
-                </ul>
-                
-                    <!--   li id="s-home" class="active"><a href="#" data-bind="click: goToHome">Home</a></li>
-                    <li id="s-games"><a href="#about" data-bind="click: goToGames">Games</a></li>
-                    <li id="s-oss"><a href="#contact" data-bind="click: goToHome">Open Source</a></li>
+                </ul -->
+                <ul class="nav">
+                    <li id="s-home" class="active"><a href="#home">Home</a></li>
+                    <li id="s-games"><a href="#games">Games</a></li>
+                    <li id="s-oss"><a href="#oss">Open Source</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -52,7 +53,7 @@
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </li>
-                </ul -->
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
       </div>

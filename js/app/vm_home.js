@@ -31,6 +31,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		// Constructor
 		self.init = function(callback) {
 			var that = this;
+//			self.pager.extendWithPage(that);
 			
 			// nested fetch
 			that.fetchGPlus(function(err) {
@@ -53,7 +54,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 				});
 			});
 			
-			self.pager.extendWithPage(that);
 		};
 		
 		// Client-side routines

@@ -19,6 +19,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		// Constructor
 		self.init = function(callback) {
 			var that = this;
+//			self.pager.extendWithPage(that);
 			
 			that.fetchGames(function(err) {
 				if (err) {
@@ -30,8 +31,6 @@ define(['knockout', 'underscore'], function(ko, _) {
 				
 				callback(that);
 			});
-			
-			self.pager.extendWithPage(that);
 		};
 		
 		// Behaviours
