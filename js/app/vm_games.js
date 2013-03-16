@@ -7,11 +7,11 @@
  */
 define(['knockout', 'underscore'], function(ko, _) {
 	
-	function GamesViewModel(pager) {
+	function GamesViewModel(parent) {
 		var self = this;
 		
 		// Data
-		self.pager = pager;
+		self.parent = parent;
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		//location; //.protocol + window.location.hostname + ;
 		self.games = ko.observableArray();
@@ -19,7 +19,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		// Constructor
 		self.init = function(callback) {
 			var that = this;
-//			self.pager.extendWithPage(that);
+			self.parent.pg_games = ko.observable(self);
 			
 			that.fetchGames(function(err) {
 				if (err) {

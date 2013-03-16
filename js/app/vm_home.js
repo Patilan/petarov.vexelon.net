@@ -7,12 +7,12 @@
  */
 define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 	
-	function HomeViewModel(pager, conf) {
+	function HomeViewModel(parent, conf) {
 		var self = this;
 		
 		// Data
 		self.config = conf;
-		self.pager = pager;
+		self.parent = parent;
 		self.posts = ko.observableArray();
 		self.commits = ko.observableArray();
 		
@@ -31,7 +31,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		// Constructor
 		self.init = function(callback) {
 			var that = this;
-//			self.pager.extendWithPage(that);
+			self.parent.pg_home = ko.observable(self);
 			
 			// nested fetch
 			that.fetchGPlus(function(err) {
@@ -69,7 +69,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			var GoogleAPI = new GooglePlusAPI(apiKey);
 			
 			GoogleAPI.listActivities(userId, {'maxResults': that.config.google.maxPosts}, function(error, result) {
-//				console.log(result);
+				console.log(result);
 				
 				_.each(result.items, function(item) {
 					that.posts.push( {content: item.object.content, link: item.url } );

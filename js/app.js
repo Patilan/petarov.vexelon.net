@@ -44,31 +44,57 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 		// use #!/ instead of the default #
 		//pager.Href.hash = '#!/';		
 		
-		var nav = new NavViewModel(pager);
-		nav.init();
-		nav.render('#nav-menu');
+		// master view model
+		var viewModel = {
+				navlis: {
+			       'home': 'mhome',
+			       'games': 'mgames',
+			       'oss': 'moss',
+			       'bio': 'mabout',
+			       'contact': 'mabout'
+				},
+				
+				beforePageHide: function(data) {
+					// Leer
+				},
+				beforePageDisplayed: function(data) {
+//					console.log(data.currentId);
+					$('#menu').children('li').removeClass('active');
+					$('#' + viewModel.navlis[data.currentId]).addClass('active');
+				},
+				// Behaviours
+//				gotoAnchor: function(to) {
+//					var that = this;
+//					$(to).closest('li').toggleClass('active');
+//					$('#' + to.lid).toggleClass('active');
+//					$('#' + to.lid).siblings().removeClass('active');
+//					location.href = to.href;
+//				}		
+		};
 		
-		var home = new HomeViewModel(pager, conf);
-//		home.render('#pane-home');
+		
+//		var nav = new NavViewModel();
+//		nav.init();
+//		nav.render('#nav-menu');
+		
+		var home = new HomeViewModel(viewModel, conf);
 		home.init(function(that) {
 			that.render('#pane-home');
 		});
 		
-		var games = new GamesViewModel(pager);
+		var games = new GamesViewModel(viewModel);
 		games.init(function(that) {
-			games.render('#pane-games');
+			that.render('#pane-games');
 		});
 		
-		var oss = new OSSViewModel(pager);
+		var oss = new OSSViewModel(viewModel);
 		oss.init(function(that) {
-			oss.render('#pane-oss');
+			that.render('#pane-oss');
 		});
 		
-		var viewModel = {
-				
-		};
 		pager.extendWithPage(viewModel);
-		pager.startHashChange('home');
+		ko.applyBindings(viewModel);
+		pager.startHashChange('home');			
 		
 	});
 });

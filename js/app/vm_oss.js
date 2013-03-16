@@ -7,11 +7,11 @@
  */
 define(['knockout', 'underscore'], function(ko, _) {
 	
-	function OSSViewModel(pager) {
+	function OSSViewModel(parent) {
 		var self = this;
 		
 		// Data
-		self.pager = pager;
+		self.parent = parent;
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		//location; //.protocol + window.location.hostname + ;
 		self.ossprojects = ko.observableArray();
@@ -19,7 +19,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		// Constructor
 		self.init = function(callback) {
 			var that = this;
-//			self.pager.extendWithPage(that);
+			self.parent.pg_oss = ko.observable(self);
 			
 			that.fetchOSS(function(err) {
 				if (err) {
