@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+
 * {
     margin: 0px;
     padding: 0px;
@@ -8,7 +11,7 @@ body, html {
 body {
     /*overflow:hidden; */
     background: white;
-    font-family: Tahoma, Sans-serif, Helvetica;
+    font-family: "Roboto", Tahoma, Sans-serif, Helvetica;
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
 .clear{
@@ -49,21 +52,14 @@ body {
     margin: 20px 0;
 }
 
-@font-face {
-  font-family: "droids";
-  src: url(../fonts/Young.ttf) format("truetype");
-  font-family: "roboto-r";
-  src: url(../fonts/Roboto-Regular.ttf) format("truetype");
-}
-
 .navbar {
-  font-family: "droids", Courier;
+  font-family: "Roboto Condensed", Courier;
   font-size: 140%;
 }
 
 h1,h2,h3,h4 {
   color: #333;
-  font-family: "droids", Tahoma, sans-serif;
+  font-family: "Roboto Condensed", Tahoma, sans-serif;
   font-weight: 400;
   border-bottom: 1px solid #ccc;
 }
