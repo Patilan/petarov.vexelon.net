@@ -1,18 +1,44 @@
-# README for a newly created project.
+PETAROV - About page
+==========================
 
-There are a couple of things you should do first, before you can use all of Git's power:
+Nothing but a personal blog page containing the following sections:
 
-  * Add a remote to this project: in the Cloud9 IDE command line, you can execute the following commands
-    `git remote add [remote name] [remote url (eg. 'git@github.com:/ajaxorg/node_chat')]` [Enter]
-  * Create new files inside your project
-  * Add them to to Git by executing the following command
-    `git add [file1, file2, file3, ...]` [Enter]
-  * Create a commit which can be pushed to the remote you just added
-    `git commit -m 'added new files'` [Enter]
-  * Push the commit the remote
-    `git push [remote name] master` [Enter]
+	* Microblog (fetched from public Google profile)
+	* Coding (fetched commits form Github RSS)
+	* Games (JSONP fetched data)
+	* Open Source (JSONP fetched data)
 
-That's it! If this doesn't work for you, please visit the excellent resources from [Github.com](http://help.github.com) and the [Pro Git](http://http://progit.org/book/) book.
-If you can't find your answers there, feel free to ask us via Twitter (@cloud9ide), [mailing list](groups.google.com/group/cloud9-ide) or IRC (#cloud9ide on freenode).
+# Supported Browsers
 
-Happy coding!
+<table>
+  <tr>
+    <th>Browser</th>
+    <th>Supported</th>
+    <th>Tested Versions</th>
+  </tr>
+  <tr>
+    <th>Google Chrome</th>
+    <td>Yes</td>
+    <td>24.0; 25.0</td>
+  </tr>
+  <tr>
+    <th>Firefox</th>
+    <td>Yes</td>
+    <td>18.0; 19.0</td>
+  </tr>
+</table>
+
+# Open Source Libraries
+The following open source libraries are used:
+
+  * [Knockout](http://knockoutjs.com/) - Simplify dynamic JavaScript UIs by applying the Model-View-View Model (MVVM) pattern.  
+  * [jQuery](http://jquery.com/) - The Write Less, Do More, JavaScript Library
+  * [Require.js](http://requirejs.org/) - RequireJS is a JavaScript file and module loader.
+  * [Underscore.js](http://underscorejs.org/) - utility-belt library for JavaScript
+  * [Bootstrap](http://twitter.github.com/bootstrap/) - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+  * [Googole Plus Javascript API](https://github.com/AdminSpot/Google-Plus-javascript-API) - Google Plus Javascript API
+  * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.
+
+# License
+Read the [LICNESE] file for more info.
+
