@@ -49,9 +49,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		self.clickr = function(url) {
 			window.location.href = url.link;
 		};
-		self.clickr1 = function(url) {
-			window.location.href = url.link;
-		};		
 		
 		/*
 		 * Fetch GPlus posts
@@ -59,12 +56,12 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		self.fetchGPlus = function(callback) {
 			var that = this;
 			
-		    var apiKey = 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8';
-		    var userId = '101695111306977669026';	
+		    var apiKey = that.config.google.apiKey;
+		    var userId = that.config.google.clientId;
 			var GoogleAPI = new GooglePlusAPI(apiKey);
 			
 			GoogleAPI.listActivities(userId, {'maxResults': that.config.google.maxPosts}, function(error, result) {
-				console.log(result);
+//				console.log(result);
 				
 				_.each(result.items, function(item) {
 					that.posts.push( {content: item.object.content, link: item.url } );
@@ -72,11 +69,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 				
 				// notify
 				callback(error);
-//				if (error) {
-//					callback(error);
-//				} else {
-//					callback(null);
-//				}
 			});			
 		};
 		/*
@@ -125,6 +117,8 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 				
 				$xml.find('entry').find('content').each(function(node) {
 					that.commits.push( {content: $(this).text(), link: '' } );
+					if (that.commits().length > that.config.github.maxPosts)
+						return false;
 				});
 		  		
 //				_.each(data.data, function(item) {
