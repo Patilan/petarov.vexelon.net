@@ -91,13 +91,14 @@
 		    <div class="span9">
 				<div class="hero-unit">
 					<h3>Petar Petrov</h3>
-					<p>...writes games, software, and sometimes he's funny.</p>
+					<p>...writes games, software and sometimes he's funny.</p>
 				</div>
 			    <div class="span8">
-			    	<h2>Microblog</h2>
+			    	<!-- h2>Microblog</h2 -->
 				    <div id="micros-widget" data-bind="foreach: posts">
+				    	<h4><span data-bind="text: published"></span></h4>
 			            <p data-bind="html: content"></p>
-			            <p><a class="btn btn-link" href="#" data-bind="click: $parent.clickr">Read More &raquo;</a></p>
+			            <p><a class="btn btn-info" href="#" data-bind="attr: {href: link}">Read More &raquo;</a></p>
 			            <hr>
 					</div>
 			    </div>
@@ -177,7 +178,7 @@
     <div id="footer">
     <div class="container">
 		<p class="muted credit">Powered by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>,  
-		<a href="http://knockoutjs.com/">Knockout</a>. &copy; 2012 Petar Petrov</p>
+		<a href="http://knockoutjs.com/">Knockout</a>. &copy; 2013 Petar Petrov</p>
 	</div>
     </div> 
     

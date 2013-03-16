@@ -5,7 +5,7 @@
  * http://petarov.vexelon.net/
  * 
  */
-define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
+define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], function(ko, _) {
 	
 	function HomeViewModel(parent, conf) {
 		var self = this;
@@ -49,10 +49,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 			ko.applyBindings(self, $(to)[0]);
 		};	
 		
-		self.clickr = function(url) {
-			window.location.href = url.link;
-		};
-		
 		/*
 		 * Fetch GPlus posts
 		 */
@@ -67,7 +63,11 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 //				console.log(result);
 				
 				_.each(result.items, function(item) {
-					that.posts.push( {content: item.object.content, link: item.url } );
+					that.posts.push({
+						content: item.object.content, 
+						link: item.url,
+						published: moment(item.published).format("dddd, MMMM Do YYYY"),
+						});
 				});
 				
 				// notify
@@ -89,7 +89,10 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 	//				console.log(data);
 		  		
 				_.each(data.data, function(item) {
-					that.commits.push( {content: item.name, link: item.html_url } );
+					that.commits.push({
+						content: item.name, 
+						link: item.html_url
+						});
 				});		  		
 		  			
 				// notify

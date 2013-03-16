@@ -17,6 +17,7 @@ require.config({
         underscore: 'underscore-min',
         hashchange: 'jquery.ba-hashchange.min',
         pager: 'pager.min',
+        moment: 'moment.min',
         // require.js plugins
         goog: '../plugins/goog',
         async: '../plugins/async',
