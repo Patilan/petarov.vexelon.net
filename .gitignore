@@ -1,2 +1,4 @@
 # Cloud9
 .c9*
+build/*
+settings/*
