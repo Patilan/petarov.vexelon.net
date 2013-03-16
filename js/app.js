@@ -15,7 +15,6 @@ require.config({
         knockout: 'knockout-2.2.1',
         bootstrap: 'bootstrap.min',
         underscore: 'underscore-min',
-        jfeed: 'jquery.jfeed.pack',
         hashchange: 'jquery.ba-hashchange.min',
         pager: 'pager.min',
         // require.js plugins
