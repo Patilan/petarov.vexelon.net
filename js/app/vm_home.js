@@ -116,18 +116,17 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 				$xml = $(xmldoc);
 				
 				$xml.find('entry').find('content').each(function(node) {
-					that.commits.push( {content: $(this).text(), link: '' } );
+					// fix links
+					var text = $(this).text();
+					text = text.replace(/href=\"\//g, 'target=\"_blank\" href=\"' + that.config.github.url);
+					// push 2 display
+					that.commits.push({content: text});
+					// check limit
 					if (that.commits().length > that.config.github.maxPosts)
 						return false;
 				});
-		  		
-//				_.each(data.data, function(item) {
-//					that.commits.push( {content: item.name, link: item.html_url } );
-//				});		  		
-		  			
 				// notify
 				callback(null);
-					
 		  	}).fail(function(error) {
 		  		callback(error);
 		  	});				

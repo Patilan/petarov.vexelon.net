@@ -1,5 +1,4 @@
 "use strict"; // jshint ;_;
-
 require.config({
 	//By default load any module IDs from js/lib
 	baseUrl: 'js/lib',
@@ -11,7 +10,7 @@ require.config({
     paths: {
     	app: '../app',
     	plugin: '../plugins',
-    	
+    	// libs
     	jquery: "http://code.jquery.com/jquery-1.9.1.min",
         knockout: 'knockout-2.2.1',
         bootstrap: 'bootstrap.min',
@@ -19,7 +18,7 @@ require.config({
         jfeed: 'jquery.jfeed.pack',
         hashchange: 'jquery.ba-hashchange.min',
         pager: 'pager.min',
-        // Require JS plugins
+        // require.js plugins
         goog: '../plugins/goog',
         async: '../plugins/async',
         propertyParser: '../plugins/propertyParser',
@@ -95,6 +94,5 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 		pager.extendWithPage(viewModel);
 		ko.applyBindings(viewModel);
 		pager.startHashChange('home');			
-		
 	});
 });
