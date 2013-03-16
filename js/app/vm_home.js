@@ -43,6 +43,9 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		};
 		
 		self.render = function(to) {
+			if (!to)  {
+				to = '#page-home';
+			}
 			ko.applyBindings(self, $(to)[0]);
 		};	
 		

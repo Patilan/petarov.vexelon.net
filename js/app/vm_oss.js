@@ -36,6 +36,9 @@ define(['knockout', 'underscore'], function(ko, _) {
 		};
 		
 		self.render = function(to) {
+			if (!to)  {
+				to = '#page-oss';
+			}			
 			ko.applyBindings(self, $(to)[0]);
 		};			
 		

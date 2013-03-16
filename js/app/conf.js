@@ -16,7 +16,7 @@ define([], function() {
     			url: 'https://github.com/',
     			apiUrl: 'https://api.github.com',
     			atomUrl: 'https://github.com/petarov.atom',
-    			maxPosts: 7,
+    			maxPosts: 5,
     		}
     };
     

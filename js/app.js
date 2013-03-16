@@ -37,62 +37,67 @@ require.config({
     
 require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], function(ko, conf, pager) {
 	
-	require(['app/vm_home', 'app/vm_games', 'app/vm_oss'], 
-			function(HomeViewModel, GamesViewModel, OSSViewModel) {
-		
-		// use #!/ instead of the default #
-		//pager.Href.hash = '#!/';		
-		
-		// master view model
-		var viewModel = {
-				navlis: {
-			       'home': 'mhome',
-			       'games': 'mgames',
-			       'oss': 'moss',
-			       'bio': 'mabout',
-			       'contact': 'mabout'
-				},
-				pg_home: ko.observable(),
-				pg_games: ko.observable(),
-				pg_oss: ko.observable(),
-				
-				// Routines
-				beforePageHide: function(data) {
-					// Leer
-				},
-				beforePageDisplayed: function(data) {
-					$('#menu').children('li').removeClass('active');
-					$('#' + viewModel.navlis[data.currentId]).addClass('active');
-				},
-				// Behaviours
+	// use #!/ instead of the default #
+	//pager.Href.hash = '#!/';		
+	
+	// master view model
+	var viewModel = {
+			navlis: {
+		       'home': 'mhome',
+		       'games': 'mgames',
+		       'oss': 'moss',
+		       'bio': 'mabout',
+		       'contact': 'mabout'
+			},
+			pg_home: ko.observable(),
+			pg_games: ko.observable(),
+			pg_oss: ko.observable(),
+			
+			// Routines
+			
+			beforePageHide: function(data) {
+				// Leer
+			},
+			beforePageDisplayed: function(data) {
+				$('#menu').children('li').removeClass('active');
+				$('#' + viewModel.navlis[data.currentId]).addClass('active');
+			},
+			// Behaviours
 //				gotoAnchor: function(to) {
 //					var that = this;
 //					$(to).closest('li').toggleClass('active');
 //					$('#' + to.lid).toggleClass('active');
 //					$('#' + to.lid).siblings().removeClass('active');
 //					location.href = to.href;
-//				}		
-		};
-		
-		// child view-models
-		
-		var home = new HomeViewModel(viewModel, conf);
-		home.init(function(err) {
-			home.render('#pane-home');
-		});
-		
-		var games = new GamesViewModel(viewModel);
-		games.init(function(err) {
-			games.render('#pane-games');
-		});
-		
-		var oss = new OSSViewModel(viewModel);
-		oss.init(function(err) {
-			oss.render('#pane-oss');
-		});
-		
-		pager.extendWithPage(viewModel);
-		ko.applyBindings(viewModel);
-		pager.startHashChange('home');			
-	});
+//				},
+	};
+	
+	window.viewModel = viewModel;
+	
+	// define view models loader
+	window.vms = {};
+	
+    window.requireVM = function(module) {
+	    return function (callback) {
+	    	if (!window.vms[module]) {
+	    		
+		    	require(['app/' + module], function(VModel) {
+					var vm = new VModel(window.viewModel, conf);
+					vm.init(function(err) {
+						vm.render();
+//							callback(vm);
+					});
+					window.vms[module] = vm;
+					callback(vm);
+		    	});
+		    	
+	    	}
+	    };
+	};
+	
+	// setup pager
+	pager.extendWithPage(viewModel);
+	ko.applyBindings(viewModel);
+	pager.startHashChange();	
+	
 });

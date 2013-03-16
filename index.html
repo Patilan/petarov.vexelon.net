@@ -61,11 +61,12 @@
 
     <div id="container" class="container">
     
+    
 		<!-- Home -->
 		<div id="pane-home" class="row" 
-			data-bind="page: {id: 'home', fx: 'fade', beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
+			data-bind="page: {id: 'home', fx: 'fade', withOnShow: requireVM('vm_home'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
 		
-		    <div class="span3" data-bind="with: pg_home">
+		    <div class="span3">
 			    <div class="well sidebar-nav">
 			    <p>
 			    <img src="img/face.png" style="width: 200px; heiht: 180px;" class="img-polaroid" />
@@ -92,7 +93,7 @@
 					<h3>Petar Petrov</h3>
 					<p>...writes games, software, and sometimes he's funny.</p>
 				</div>
-			    <div class="span8" data-bind="with: pg_home">
+			    <div class="span8">
 			    	<h2>Microblog</h2>
 				    <div id="micros-widget" data-bind="foreach: posts">
 			            <p data-bind="html: content"></p>
@@ -106,7 +107,7 @@
 		
 		<!-- Games -->
 		<div id="pane-games" class="row" 
-			data-bind="page: {id: 'games', fx: 'fade', beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
+			data-bind="page: {id: 'games', fx: 'fade', withOnShow: requireVM('vm_games'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
 		    <div class="row-fluid">
 				<div class="hero-unit">
 					<h3>Games</h3>
@@ -115,7 +116,7 @@
 				</div>
 			</div>
 			
-		    <div class="row-fluid" data-bind="with: pg_games">
+		    <div class="row-fluid">
 		    <ul class="thumbnails" data-bind="foreach: gameslist">
 			    <li class="span3" style="display: block">
 				    <div class="thumbnail">
@@ -137,7 +138,7 @@
 		
 		<!-- OSS -->
 		<div id="pane-oss" class="row" 
-			data-bind="page: {id: 'oss', fx: 'fade', beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
+			data-bind="page: {id: 'oss', fx: 'fade', withOnShow: requireVM('vm_oss'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
 		    <div class="row-fluid">
 				<div class="hero-unit">
 					<h3>Open Source</h3>
@@ -145,7 +146,7 @@
 				</div>
 			</div>
 			
-		    <div class="row-fluid" data-bind="with: pg_oss">
+		    <div class="row-fluid">
 		    <ul class="thumbnails" data-bind="foreach: ossprojects">
 			    <li class="span2">
 				    <div class="thumbnail">
@@ -176,7 +177,8 @@
     <!-- Footer -->
     <div id="footer">
     <div class="container">
-		<p class="muted credit">Powered by <a href="">Bootstrap</a>,  <a href="http://knockoutjs.com/">Knockout</a>. &copy; 2012 Petar Petrov</p>
+		<p class="muted credit">Powered by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>,  
+		<a href="http://knockoutjs.com/">Knockout</a>. &copy; 2012 Petar Petrov</p>
 	</div>
     </div>   
 </body>
