@@ -38,8 +38,8 @@ require.config({
     
 require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], function(ko, conf, pager) {
 	
-	require(['app/vm_nav', 'app/vm_home', 'app/vm_games', 'app/vm_oss'], 
-			function(NavViewModel, HomeViewModel, GamesViewModel, OSSViewModel) {
+	require(['app/vm_home', 'app/vm_games', 'app/vm_oss'], 
+			function(HomeViewModel, GamesViewModel, OSSViewModel) {
 		
 		// use #!/ instead of the default #
 		//pager.Href.hash = '#!/';		
@@ -53,12 +53,15 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 			       'bio': 'mabout',
 			       'contact': 'mabout'
 				},
+				pg_home: ko.observable(),
+				pg_games: ko.observable(),
+				pg_oss: ko.observable(),
 				
+				// Routines
 				beforePageHide: function(data) {
 					// Leer
 				},
 				beforePageDisplayed: function(data) {
-//					console.log(data.currentId);
 					$('#menu').children('li').removeClass('active');
 					$('#' + viewModel.navlis[data.currentId]).addClass('active');
 				},
@@ -72,24 +75,21 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 //				}		
 		};
 		
-		
-//		var nav = new NavViewModel();
-//		nav.init();
-//		nav.render('#nav-menu');
+		// child view-models
 		
 		var home = new HomeViewModel(viewModel, conf);
-		home.init(function(that) {
-			that.render('#pane-home');
+		home.init(function(err) {
+			home.render('#pane-home');
 		});
 		
 		var games = new GamesViewModel(viewModel);
-		games.init(function(that) {
-			that.render('#pane-games');
+		games.init(function(err) {
+			games.render('#pane-games');
 		});
 		
 		var oss = new OSSViewModel(viewModel);
-		oss.init(function(that) {
-			that.render('#pane-oss');
+		oss.init(function(err) {
+			oss.render('#pane-oss');
 		});
 		
 		pager.extendWithPage(viewModel);

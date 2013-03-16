@@ -9,17 +9,17 @@ define(['knockout', 'underscore'], function(ko, _) {
 	
 	function GamesViewModel(parent) {
 		var self = this;
+		parent.pg_games = ko.observable(self);
 		
 		// Data
-		self.parent = parent;
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		//location; //.protocol + window.location.hostname + ;
-		self.games = ko.observableArray();
+		self.gameslist = ko.observableArray();
 		
-		// Constructor
+		// Behaviors
+		
 		self.init = function(callback) {
 			var that = this;
-			self.parent.pg_games = ko.observable(self);
 			
 			that.fetchGames(function(err) {
 				if (err) {
@@ -29,16 +29,13 @@ define(['knockout', 'underscore'], function(ko, _) {
 					return;
 				}
 				
-				callback(that);
+				callback(null);
 			});
 		};
 		
-		// Behaviours
 		self.render = function(to) {
 			ko.applyBindings(self, $(to)[0]);
 		};			
-		
-		// Client-side routines
 		
 		/*
 		 * Fetch Games JSON
@@ -51,7 +48,9 @@ define(['knockout', 'underscore'], function(ko, _) {
 				url: that.originURL + 'data/games', 
 				crossDomain: 'false'
 		  	}).done(function(data) {
-		  		that.games = ko.observableArray(data.games);
+		  		_.each(data.games, function(item) {
+		  			that.gameslist.push(item);
+		  		});
 				// notify
 				callback(null);
 		  	}).fail(function(error) {

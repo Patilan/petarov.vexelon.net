@@ -9,23 +9,24 @@ define(['knockout', 'underscore'], function(ko, _) {
 	
 	function OSSViewModel(parent) {
 		var self = this;
+		parent.pg_oss = ko.observable(self);
 		
 		// Data
-		self.parent = parent;
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		//location; //.protocol + window.location.hostname + ;
 		self.ossprojects = ko.observableArray();
 		
-		// Constructor
+		// Behaviours
+		
 		self.init = function(callback) {
 			var that = this;
-			self.parent.pg_oss = ko.observable(self);
 			
 			that.fetchOSS(function(err) {
 				if (err) {
 					console.log('fetchOSS failed!');
 					console.log(err);
-					// TODO
+					
+					callback(err);
 					return;
 				}
 				
@@ -34,12 +35,9 @@ define(['knockout', 'underscore'], function(ko, _) {
 			
 		};
 		
-		// Behaviours
 		self.render = function(to) {
 			ko.applyBindings(self, $(to)[0]);
 		};			
-		
-		// Client-side routines
 		
 		/*
 		 * Fetch OSS JSON
@@ -52,7 +50,9 @@ define(['knockout', 'underscore'], function(ko, _) {
 				url: that.originURL + 'data/oss', 
 				crossDomain: 'false'
 		  	}).done(function(data) {
-		  		that.ossprojects = ko.observableArray(data.oss);
+		  		_.each(data.oss, function(item) {
+		  			that.ossprojects.push(item);
+		  		});		  		
 				// notify
 				callback(null);
 		  	}).fail(function(error) {

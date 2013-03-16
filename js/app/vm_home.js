@@ -9,14 +9,39 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 	
 	function HomeViewModel(parent, conf) {
 		var self = this;
+		parent.pg_home = ko.observable(self);
 		
 		// Data
 		self.config = conf;
-		self.parent = parent;
 		self.posts = ko.observableArray();
 		self.commits = ko.observableArray();
 		
 		// Behaviours
+		
+		self.init = function(callback) {
+			var that = this;
+			
+			// nested fetch
+			that.fetchGPlus(function(err) {
+				if (err) {
+					console.log('fetchGPlus failed!');
+					callback(err);
+					return;
+				}
+				
+				that.fetchGithubAtom(function(err) {
+					if (err) {
+						console.log('fetchGithubAtom failed!');
+						callback(err);
+						return;
+					}
+					
+					callback(null);
+				});
+			});
+			
+		};
+		
 		self.render = function(to) {
 			ko.applyBindings(self, $(to)[0]);
 		};	
@@ -26,37 +51,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 		};
 		self.clickr1 = function(url) {
 			window.location.href = url.link;
-		};
-		
-		// Constructor
-		self.init = function(callback) {
-			var that = this;
-			self.parent.pg_home = ko.observable(self);
-			
-			// nested fetch
-			that.fetchGPlus(function(err) {
-				if (err) {
-					console.log('fetchGPlus failed!');
-					
-					// TODO
-					return;
-				}
-				
-				that.fetchGithubAtom(function(err) {
-					if (err) {
-						console.log('fetchGithubAtom failed!');
-						
-						// TODO
-						return;
-					}
-					
-					callback(that);
-				});
-			});
-			
-		};
-		
-		// Client-side routines
+		};		
 		
 		/*
 		 * Fetch GPlus posts
@@ -130,7 +125,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed'], function(ko, _) {
 				
 				$xml.find('entry').find('content').each(function(node) {
 					that.commits.push( {content: $(this).text(), link: '' } );
-//					console.log($(this).text());
 				});
 		  		
 //				_.each(data.data, function(item) {
