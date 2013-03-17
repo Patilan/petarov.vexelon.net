@@ -26,7 +26,7 @@
 		{
 			title: 'E-additives server',
 			desc: 'RESTful server implementation that provides food additives information.',
-			devinfo: 'Written in C',
+			devinfo: 'C',
 			thumbnail: '',
 			page_url: 'https://github.com/petarov/e-additives.server',
 			inprogress: true,
@@ -34,7 +34,7 @@
 		{
 			title: 'CraftyMouseFace',
 			desc: 'Crafty game engine component that helps adjusting sprite facing.',
-			devinfo: 'Written in Javascript',
+			devinfo: 'Javascript',
 			thumbnail: '',
 			page_url: 'https://github.com/petarov/CraftyMouseFace',
 			inprogress: false,
@@ -42,7 +42,7 @@
 		{
 			title: 'JDevLog',
 			desc: 'Convert Svn, Git version control logs to RSS.',
-			devinfo: 'Written in Java',
+			devinfo: 'Java',
 			thumbnail: '',
 			page_url: 'https://github.com/petarov/jdevlog',
 			inprogress: false,

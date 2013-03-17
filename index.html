@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Home page of PETAROV. Games, Software development.">
+    <meta name="description" content="Petar Petrov - game and software developer.">
     <meta name="keywords" content="programming, game development, open source, microblog, javascript">    
     <title>PETAROV</title>
     <link rel="shortcut icon" href="favicon.ico" />
@@ -49,8 +49,8 @@
                     <li id="mabout" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="#contact">This page</a></li>
                             <li><a href="http://www.linkedin.com/in/petarov" target="_blank">Bio</a></li>
-                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -79,7 +79,7 @@
 			    	<a href="http://de.linkedin.com/in/petarov" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="http://www.linkedin.com/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Petar Petrov's LinkedIn profile" style="vertical-align:middle" border="0"></span></a>
   				</p>
 			    </div>
-			    <div class="span3">
+			    <div class="well">
 			    	<h2>Coding</h2>
 					<!-- div class="progress progress-striped active" data-bind="visible: commits.loading">
 					  <div id="commits-bar" class="bar" style="width: 0%;"></div>
@@ -206,12 +206,20 @@
 			    <div class="media-body">
 			      <a class="pull-left" href="#" data-bind="attr: { href: page_url }, text: title"></a>
 			      <span class="label label-info" data-bind="visible: inprogress">in progress</span>
+			      <span class="label" data-bind="text: devinfo"></span>
 			      <br />
 			      <span data-bind="text: desc"></span>
 			    </div>
 			  </li>
 			</ul>
-			</div>				
+			</div>
+			
+			<div class="span8">
+				<div class="alert alert-info">
+				  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				  More projects &amp; repos <a href="https://github.com/petarov">@GitHub</a>.
+				</div>
+			</div>
 		</div>
 		
 		<!-- About -->
