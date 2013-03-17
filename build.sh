@@ -40,7 +40,7 @@ cp css/ $BUILD -R
 cp data/ $BUILD -R
 cp img/ $BUILD -R
 cp js/ $BUILD -R
-cp favicon.ico index.html LICENSE README.md .htaccess $BUILD
+cp favicon.ico index.html LICENSE README.md .htaccess github-btn.html $BUILD
 
 ### Obfuscate javascript
 cd $BUILD/css
