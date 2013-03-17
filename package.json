@@ -1,0 +1,12 @@
+{
+    "name" : "petarov javascript",
+    "description" : "Personal web page with Javascript",
+    "homepage" : "",
+    "keywords" : ["single-page", "javascript", "knockout", "bootstrap", "jquery"],
+    "author" : "Petar Petrov",
+    "contributors" : [],
+    "dependencies" : [],
+    "repository" : {"type": "git", "url": ""},
+    "main" : "js/app.js",
+    "version" : "0.0.9"
+}
