@@ -7,6 +7,7 @@ if (empty($_GET['callback'])) {
 
 $callback = $_GET['callback'];
 $file = '';
+header('Content-type: application/javascript');
 
 switch($who) {
 	case 'games':
