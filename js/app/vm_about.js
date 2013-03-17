@@ -45,7 +45,7 @@ define(['knockout', 'underscore', 'Markdown.Converter'], function(ko, _) {
 			var that = this;
 			
 	        $.ajax({
-	            url: "README.md",
+	            url: "data/about.md",
 	            async: false,
 		  	}).done(function(data) {
 		  		

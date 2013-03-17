@@ -1,34 +1,45 @@
 PETAROV
 ==========================
 
-Nothing but a personal blog page containing the following sections:
+Nothing but a personal blog page containing sections like:
 
 	* Microblog (posts fetched from public Google profile)
 	* Coding (RSS fetched form Github profile)
 	* Games (JSONP locally fetched data)
 	* Open Source (JSONP locally fetched data)
+	* Anything else you may think of ... 
 
-The whole web page is build using Javascript and there is (with exception to JSONP) no server side code. 
+The whole web page is build using Javascript and with the exception of some JSONP data, served by a simple 
+_fetch.php_ PHP script, no othre server side code is used. 
 
-# Supported Browsers
+# Setup
+## Configure local test environment
 
-<table>
-  <tr>
-    <th>Browser</th>
-    <th>Supported</th>
-    <th>Tested Versions</th>
-  </tr>
-  <tr>
-    <th>Google Chrome</th>
-    <td>Yes</td>
-    <td>24.0; 25.0</td>
-  </tr>
-  <tr>
-    <th>Firefox</th>
-    <td>Yes</td>
-    <td>18.0; 19.0</td>
-  </tr>
-</table>
+Open your Apache Virtual Hosts configurations, e.g. _apache\conf\httpd-vhosts.conf_ in XAMPP, and add the following:
+
+		<VirtualHost *:80>
+		    DocumentRoot /path-to-project
+		    ServerName project-name.com
+		    ServerAlias www.project-name.com
+		    <Directory /path-to-project>
+		        Options FollowSymLinks MultiViews -Indexes
+		        AllowOverride All
+		        Order allow,deny
+		        Allow from all
+		    </Directory>
+		</VirtualHost>
+		
+If you are under Linux adjust your host in _/etc/hosts_
+
+		127.0.0.1       project-name.com     project-name
+		
+For Windows, go to _%WINDOWS%/system32/drivers/etc/hosts_ and add the hostname.
+		
+
+## Configure client side
+
+There are many things to adjust but you should start from _js/app/conf.js_ where you can change the Google API key,
+clientId and GitHub profile link parameters.
 
 # Open Source Libraries
 The following open source libraries are used:

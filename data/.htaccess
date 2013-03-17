@@ -10,7 +10,7 @@ Allow from All
 
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteBase /petarov/data/
+	RewriteBase /data/
 	
 	RewriteRule ^oss(.*)$		fetch.php?w=oss [L,QSA]
 	RewriteRule ^games(.*)$		fetch.php?w=games [L,QSA]
