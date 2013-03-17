@@ -53,7 +53,6 @@ define(['knockout', 'underscore'], function(ko, _) {
 				url: that.originURL + 'data/oss', 
 				crossDomain: 'false'
 		  	}).done(function(data) {
-		  		console.log(data);
 		  		_.each(data.oss, function(item) {
 		  			that.ossprojects.push(item);
 		  		});		  		

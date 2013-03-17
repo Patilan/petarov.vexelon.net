@@ -223,9 +223,10 @@
 		</div>
 		
 		<!-- About -->
-		<div id="pange-about" 
-			data-bind="page: {id: 'about', fx: 'fade', beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed, frame: 'iframe', source: 'README.md'}">
-			<iframe sandbox="" height="1024" width="920"></iframe>
+		<div id="pane-contact" 
+			data-bind="page: {id: 'contact', fx: 'fade', withOnShow: requireVM('vm_about'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
+			
+			<div data-bind="html: markdown"></div>
 		</div>
 		
 	<!-- End: Container -->
@@ -233,8 +234,7 @@
     <!-- Footer -->
     <div id="footer">
     <div class="container">
-		<p class="muted credit">Powered by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>,  
-		<a href="http://knockoutjs.com/">Knockout</a>. &copy; 2013 Petar Petrov</p>
+		<p class="muted credit">Powered by <a href="#contact">Bootstrap, Knockout & others</a>. &copy; 2013 Petar Petrov</p>
 	</div>
     </div> 
     
