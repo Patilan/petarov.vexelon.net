@@ -14,7 +14,9 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 		// Data
 		self.config = conf;
 		self.posts = ko.observableArray();
+		self.posts.loading = ko.observable(true);
 		self.commits = ko.observableArray();
+		self.commits.loading = ko.observable(true);
 		
 		// Behaviours
 		
@@ -29,13 +31,17 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 					return;
 				}
 				
+				// UI loaded
+				self.posts.loading(false);				
+				
 				that.fetchGithubAtom(function(err) {
 					if (err) {
 						console.log('fetchGithubAtom failed!');
 						callback(err);
 						return;
 					}
-					
+					// UI loaded
+					self.commits.loading(false);
 					callback(null);
 				});
 			});
@@ -121,7 +127,14 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 				var xmldoc = $.parseXML(data.xml);
 				$xml = $(xmldoc);
 				
+//				var i = 0;
+//				var step = 100 / that.config.github.maxPosts;
+				
 				$xml.find('entry').find('content').each(function(node) {
+					
+//					$('#commits-bar').css('width', i + '%');
+//					i += step;
+					
 					// fix links
 					var text = $(this).text();
 					text = text.replace(/href=\"\//g, 'target=\"_blank\" href=\"' + that.config.github.url);
@@ -131,6 +144,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 					if (that.commits().length > that.config.github.maxPosts)
 						return false;
 				});
+				
 				// notify
 				callback(null);
 		  	}).fail(function(error) {

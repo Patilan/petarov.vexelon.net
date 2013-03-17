@@ -82,8 +82,8 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'holder', 'plugin/domRead
 	
     window.requireVM = function(module) {
 	    return function (callback) {
+	    	console.log(module);
 	    	if (!window.vms[module]) {
-	    		
 		    	require(['app/' + module], function(VModel) {
 					var vm = new VModel(window.viewModel, conf);
 					vm.init(function(err) {
