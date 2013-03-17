@@ -15,6 +15,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		//location; //.protocol + window.location.hostname + ;
 		self.ossprojects = ko.observableArray();
+		self.appsprojects = ko.observableArray();
 		
 		// Behaviours
 		
@@ -54,7 +55,11 @@ define(['knockout', 'underscore'], function(ko, _) {
 				crossDomain: 'false'
 		  	}).done(function(data) {
 		  		_.each(data.oss, function(item) {
-		  			that.ossprojects.push(item);
+		  			if (item.app) {
+		  				that.appsprojects.push(item);
+		  			} else {
+		  				that.ossprojects.push(item);	
+		  			}
 		  		});		  		
 				// notify
 				callback(null);

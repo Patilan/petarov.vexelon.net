@@ -177,16 +177,16 @@
 		<!-- Open Source (OSS) -->
 		<div id="pane-oss" class="row" 
 			data-bind="page: {id: 'oss', fx: 'fade', withOnShow: requireVM('vm_oss'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
-		    <div class="row-fluid">
+		    <!-- div class="row-fluid">
 				<div class="hero-unit">
 					<h3>Open Source</h3>
 					<p>Some of my projects.</p>
 				</div>
-			</div>
+			</div  -->
 			
 		    <div class="span5">
 		    <h3>Apps</h3>
-			<ul class="media-list" data-bind="foreach: ossprojects">
+			<ul class="media-list" data-bind="foreach: appsprojects">
 			  <li class="media">
 			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
 			      <img class="media-object" data-bind="attr: { src: thumbnail }" style="width: 64; height: 64;" data-src="holder.js/64x64">
@@ -194,11 +194,6 @@
 			    <div class="media-body">
 			      <h4 class="media-heading" data-bind="text: title"></h4>
 			      <p data-bind="text: desc"></p>
-	            <p>
-		            <a href="#" class="btn">Web</a>
-		            <a href="#" class="btn">Source</a>
-		            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
-	            </p>
 			    </div>
 			  </li>
 			</ul>	
@@ -209,10 +204,10 @@
 			<ul class="media-list" data-bind="foreach: ossprojects">
 			  <li class="media">
 			    <div class="media-body">
-			      <a class="pull-left" href="#" data-bind="attr: { href: page_url }">
-			      	<h4 class="media-heading" data-bind="text: title"></h4>
-			      </a>
-			      <p data-bind="text: desc"></p>
+			      <a class="pull-left" href="#" data-bind="attr: { href: page_url }, text: title"></a>
+			      <span class="label label-info" data-bind="visible: inprogress">in progress</span>
+			      <br />
+			      <span data-bind="text: desc"></span>
 			    </div>
 			  </li>
 			</ul>

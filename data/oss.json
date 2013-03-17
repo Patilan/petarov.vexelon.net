@@ -1,12 +1,52 @@
 {
 	"oss" : [
+	         // Apps
+ 		{
+			title: 'MyGlob',
+			desc: 'Android app that provides a quick way to check your bill and account status with the Globul mobile operator.',
+			thumbnail: 'https://raw.github.com/petarov/myglob/master/res/drawable-hdpi/icon.png',
+			page_url: 'https://github.com/petarov/myglob',
+			app: true,
+		},
+ 		{
+			title: 'BGRates',
+			desc: 'Android app that delivers up-to-date currency exchange rates for Bulgarian Lev.',
+			thumbnail: 'https://raw.github.com/petarov/bgrates/master/res/drawable-hdpi/icon.png',
+			page_url: 'https://github.com/petarov/bgrates',
+			app: true,
+		},		
+ 		{
+			title: 'E-additives',
+			desc: ' J2ME app that provides detailed information about food additives.',
+			thumbnail: 'https://raw.github.com/petarov/e-additives.j2me/master/j2me/res/logo_96x96.png',
+			page_url: 'https://code.google.com/p/etata/',
+			app: true,
+		},			
+		// Tools
 		{
-			title: 'EmEx',
-			desc: 'Email Extended (Emex) is a new generation E-Mail client.',
-			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
-			page_url: 'http://code.google.com/p/emex/',
-			source_url: 'https://github.com/petarov/emex',
-			downloads_url: 'https://code.google.com/p/emex/downloads/list'
+			title: 'E-additives server',
+			desc: 'RESTful server implementation that provides food additives information.',
+			devinfo: 'Written in C',
+			thumbnail: '',
+			page_url: 'https://github.com/petarov/e-additives.server',
+			inprogress: true,
+		},
+		{
+			title: 'CraftyMouseFace',
+			desc: 'Crafty game engine component that helps adjusting sprite facing.',
+			devinfo: 'Written in Javascript',
+			thumbnail: '',
+			page_url: 'https://github.com/petarov/CraftyMouseFace',
+			inprogress: false,
+		},		
+		{
+			title: 'JDevLog',
+			desc: 'Convert Svn, Git version control logs to RSS.',
+			devinfo: 'Written in Java',
+			thumbnail: '',
+			page_url: 'https://github.com/petarov/jdevlog',
+			inprogress: false,
+			
 		}	
 	]
 }
