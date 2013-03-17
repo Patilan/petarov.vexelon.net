@@ -122,7 +122,7 @@
 			</div>
 			
 		    <div class="span5">
-		    <h3>Games</h3>
+		    <h3>Released</h3>
 			<ul class="media-list" data-bind="foreach: gameslist">
 			  <li class="media">
 			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
@@ -158,8 +158,8 @@
 			</div> 
 			
 		    <div class="span5">
-		    <h3>Unfinished</h3>
-			<ul class="media-list" data-bind="foreach: gameslist">
+		    <h3>Not Released</h3>
+			<ul class="media-list" data-bind="foreach: gameslist_unreleased">
 			  <li class="media">
 			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
 			      <img class="media-object" data-bind="attr: { src: thumbnail }" style="width: 64; height: 64;" data-src="holder.js/64x64">
@@ -167,11 +167,6 @@
 			    <div class="media-body">
 			      <h4 class="media-heading" data-bind="text: title"></h4>
 			      <p data-bind="text: desc"></p>
-	            <!--  p>
-		            <a href="#" class="btn btn-link">Web</a>
-		            <a href="#" class="btn btn-link">Source</a>
-		            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
-	            </p -->
 			    </div>
 			  </li>
 			</ul>
@@ -189,9 +184,13 @@
 				</div>
 			</div>
 			
-		    <div class="row-fluid">
+		    <div class="span5">
+		    <h3>Apps</h3>
 			<ul class="media-list" data-bind="foreach: ossprojects">
 			  <li class="media">
+			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
+			      <img class="media-object" data-bind="attr: { src: thumbnail }" style="width: 64; height: 64;" data-src="holder.js/64x64">
+			    </a>			  
 			    <div class="media-body">
 			      <h4 class="media-heading" data-bind="text: title"></h4>
 			      <p data-bind="text: desc"></p>
@@ -203,23 +202,21 @@
 			    </div>
 			  </li>
 			</ul>	
-		    <!-- ul class="thumbnails" data-bind="foreach: ossprojects">
-			    <li class="span2">
-				    <div class="thumbnail">
-				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
-				    	<div class="caption">
-				    	<h3 data-bind="text: title"></h3>
-			            <p data-bind="text: desc"></p>
-			            <p>
-				            <a href="#" class="btn btn-link">Web</a>
-				            <a href="#" class="btn btn-link">Source</a>
-				            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
-			            </p>
-				    	</div>
-				    </div>
-				</li>
-		    </ul -->
 			</div>  
+			
+		    <div class="span5">
+		    <h3>Tools</h3>
+			<ul class="media-list" data-bind="foreach: ossprojects">
+			  <li class="media">
+			    <div class="media-body">
+			      <a class="pull-left" href="#" data-bind="attr: { href: page_url }">
+			      	<h4 class="media-heading" data-bind="text: title"></h4>
+			      </a>
+			      <p data-bind="text: desc"></p>
+			    </div>
+			  </li>
+			</ul>
+			</div>				
 		</div>
 		
 		<!-- About -->
@@ -234,7 +231,7 @@
     <!-- Footer -->
     <div id="footer">
     <div class="container">
-		<p class="muted credit">Powered by <a href="#contact">Bootstrap, Knockout & others</a>. &copy; 2013 Petar Petrov</p>
+		<p class="muted credit">Powered by <a href="#contact">Bootstrap, Knockout &amp; others</a>. &copy; 2013 Petar Petrov</p>
 	</div>
     </div> 
     

@@ -15,6 +15,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		//location; //.protocol + window.location.hostname + ;
 		self.gameslist = ko.observableArray();
+		self.gameslist_unreleased = ko.observableArray();
 		
 		// Behaviors
 		
@@ -52,7 +53,11 @@ define(['knockout', 'underscore'], function(ko, _) {
 				crossDomain: 'false'
 		  	}).done(function(data) {
 		  		_.each(data.games, function(item) {
-		  			that.gameslist.push(item);
+		  			if (item.released) {
+		  				that.gameslist.push(item);
+		  			} else {
+		  				that.gameslist_unreleased.push(item);
+		  			}
 		  		});
 				// notify
 				callback(null);

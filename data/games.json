@@ -2,35 +2,60 @@
 	"games": [
 		{
 			title: 'Raging Gardens for Facebook',
-			desc: 'Facebook port of Raging Gardens - Uses Facebook Graph API to handle user logins and hiscore list.',
+			desc: 'Facebook port of Raging Gardens. Uses Facebook Graph API to handle user logins and hiscore list.',
 			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
 			page_url: 'http://apps.facebook.com/raging_gardens/',
-			source_url: 'https://github.com/petarov/RagingGardensFB',
-			downloads_url: 'http://apps.facebook.com/raging_gardens/'
+			free: true,
+			released: true,
 		},		
 		{
 			title: 'Raging Gardens',
 			desc: 'Raging Gardens is a HTML5/Javascript web browser game where a a hungry (ninja) rabbit farts too often.',
 			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
 			page_url: 'http://petarov.github.com/game-off-2012/',
-			source_url: 'https://github.com/petarov/game-off-2012',
-			downloads_url: 'http://petarov.github.com/game-off-2012/'
+			free: true,
+			released: true,
 		},	
+		{
+			title: 'Tuxla 3D',
+			desc: '3D Mobile game for J2ME platforms.',
+			thumbnail: 'http://i.imgur.com/HVUACcK.gif',
+			page_url: 'http://goo.gl/fACu9',
+			free: false,
+			released: true,
+		},		
 		{
 			title: 'Savage Wheels',
 			desc: 'Savage Wheels is 2D car crashing game similar to the old classic Destruction Derby.',
 			thumbnail: 'http://kenamick.com/savagewheels/images/shot6.jpg',
 			page_url: 'https://code.google.com/p/savagewheels/',
-			source_url: 'https://github.com/petarov/savagewheels',
-			downloads_url: 'https://code.google.com/p/savagewheels/downloads/list'
+			free: true,
+			released: true,
 		},
+		{
+			title: 'Ivo the vampire',
+			desc: '2D shoot\'em up game',
+			thumbnail: 'http://i.imgur.com/zEUNPHE.png',
+			page_url: 'https://code.google.com/p/ivothevampire/',
+			free: true,
+			released: true,
+		},		
 		{
 			title: 'Desktop Defender 2',
 			desc: '2D side-scroller, space shooter game',
 			thumbnail: 'http://kenamick.com/dd2/images/shot1.jpg',
 			page_url: 'https://code.google.com/p/desktopdefender2/',
-			source_url: 'https://code.google.com/p/desktopdefender2/',
-			downloads_url: 'https://code.google.com/p/desktopdefender2/downloads/list'
-		}		
+			free: true,
+			released: true,
+		},
+		{
+			title: 'Zero1_IZ3D',
+			desc: '3D game engine based on C++/OpenGL',
+			thumbnail: 'http://i.imgur.com/HqyKF7F.png',
+			page_url: 'https://code.google.com/p/desktopdefender2/',
+			free: true,
+			released: false,
+		},		
+		
 	]
 }
