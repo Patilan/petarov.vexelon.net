@@ -50,9 +50,9 @@
 		},
 		{
 			title: 'Zero1_IZ3D',
-			desc: '3D game engine based on C++/OpenGL',
+			desc: 'An attempt to create a 3D game engine using OpenGL and C++.',
 			thumbnail: 'http://i.imgur.com/HqyKF7F.png',
-			page_url: 'https://code.google.com/p/desktopdefender2/',
+			page_url: 'https://code.google.com/p/zero1iz3d/',
 			free: true,
 			released: false,
 		},		
