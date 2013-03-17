@@ -43,7 +43,7 @@
                 </li>
                 </ul -->
                 <ul id="menu" class="nav">
-                    <li id="mhome" class="active"><a href="#home">Home</a></li>
+                    <li id="mhome" class="active"><a href="#start">Home</a></li>
                     <li id="mgames"><a href="#games">Games</a></li>
                     <li id="moss"><a href="#oss">Open Source</a></li>
                     <li id="mabout" class="dropdown">
@@ -64,7 +64,7 @@
     
 		<!-- Home -->
 		<div id="pane-home" class="row" 
-			data-bind="page: {id: 'home', fx: 'fade', withOnShow: requireVM('vm_home'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
+			data-bind="page: {id: 'start', fx: 'fade', withOnShow: requireVM('vm_home'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
 		
 		    <div class="span3">
 			    <div class="well sidebar-nav">
@@ -98,7 +98,7 @@
 				    <div id="micros-widget" data-bind="foreach: posts">
 				    	<h4><span data-bind="text: published"></span></h4>
 			            <p data-bind="html: content"></p>
-			            <p><a class="btn btn-info" href="#" data-bind="attr: {href: link}">Read More &raquo;</a></p>
+			            <p><a class="btn btn-info" href="#" data-bind="attr: {href: link}">Go to post &raquo;</a></p>
 			            <hr>
 					</div>
 			    </div>

@@ -43,7 +43,7 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 	// master view model
 	var viewModel = {
 			navlis: {
-		       'home': 'mhome',
+		       'start': 'mhome',
 		       'games': 'mgames',
 		       'oss': 'moss',
 		       'bio': 'mabout',
