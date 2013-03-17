@@ -1,8 +1,8 @@
 {
 	"games": [
 		{
-			title: 'Raging Gardens Facebook',
-			desc: 'Facebook port of Raging Gardens - HTML5/Javascript web browser game where a hungry (ninja) rabbit farts too often.',
+			title: 'Raging Gardens for Facebook',
+			desc: 'Facebook port of Raging Gardens - Uses Facebook Graph API to handle user logins and hiscore list.',
 			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
 			page_url: 'http://apps.facebook.com/raging_gardens/',
 			source_url: 'https://github.com/petarov/RagingGardensFB',
@@ -25,8 +25,8 @@
 			downloads_url: 'https://code.google.com/p/savagewheels/downloads/list'
 		},
 		{
-			title: 'DesktopDefender2',
-			desc: 'A side-scroller space shooter game',
+			title: 'Desktop Defender 2',
+			desc: '2D side-scroller, space shooter game',
 			thumbnail: 'http://kenamick.com/dd2/images/shot1.jpg',
 			page_url: 'https://code.google.com/p/desktopdefender2/',
 			source_url: 'https://code.google.com/p/desktopdefender2/',

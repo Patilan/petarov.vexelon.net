@@ -117,8 +117,25 @@
 				</div>
 			</div>
 			
-		    <div class="row-fluid">
-		    <ul class="thumbnails" data-bind="foreach: gameslist">
+		    <div class="span5">
+		    <h3>Games</h3>
+			<ul class="media-list" data-bind="foreach: gameslist">
+			  <li class="media">
+			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
+			      <img class="media-object" data-bind="attr: { src: thumbnail }" style="width: 64; height: 64;" data-src="holder.js/64x64">
+			    </a>
+			    <div class="media-body">
+			      <h4 class="media-heading" data-bind="text: title">Media heading</h4>
+			      <p data-bind="text: desc"></p>
+	            <!--  p>
+		            <a href="#" class="btn btn-link">Web</a>
+		            <a href="#" class="btn btn-link">Source</a>
+		            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
+	            </p -->
+			    </div>
+			  </li>
+			</ul>		
+		    <!--  ul class="thumbnails" data-bind="foreach: gameslist">
 			    <li class="span3" style="display: block">
 				    <div class="thumbnail">
 				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
@@ -133,8 +150,28 @@
 				    	</div>
 				    </div>
 				</li>
-		    </ul>
-			</div>  
+		    </ul -->
+			</div> 
+			
+		    <div class="span5">
+		    <h3>Unfinished</h3>
+			<ul class="media-list" data-bind="foreach: gameslist">
+			  <li class="media">
+			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
+			      <img class="media-object" data-bind="attr: { src: thumbnail }" style="width: 64; height: 64;" data-src="holder.js/64x64">
+			    </a>
+			    <div class="media-body">
+			      <h4 class="media-heading" data-bind="text: title">Media heading</h4>
+			      <p data-bind="text: desc"></p>
+	            <!--  p>
+		            <a href="#" class="btn btn-link">Web</a>
+		            <a href="#" class="btn btn-link">Source</a>
+		            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
+	            </p -->
+			    </div>
+			  </li>
+			</ul>				
+			
 		</div>
 		
 		<!-- OSS -->

@@ -35,7 +35,7 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime()
 });
     
-require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], function(ko, conf, pager) {
+require(['knockout', 'app/conf', 'pager', 'bootstrap', 'holder', 'plugin/domReady!'], function(ko, conf, pager) {
 	
 	// use #!/ instead of the default #
 	//pager.Href.hash = '#!/';		
