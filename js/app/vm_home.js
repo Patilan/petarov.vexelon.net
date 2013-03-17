@@ -9,7 +9,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 	
 	function HomeViewModel(parent, conf) {
 		var self = this;
-		parent.pg_home = ko.observable(self);
 		
 		// Data
 		self.config = conf;
@@ -122,7 +121,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 				url: srv + 'data/atom', 
 				data: { 'url': that.config.github.atomUrl },
 		  	}).done(function(data) {
-				console.log(data);
+//				console.log(data);
 				
 				var xmldoc = $.parseXML(data.xml);
 				$xml = $(xmldoc);

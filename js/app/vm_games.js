@@ -9,7 +9,6 @@ define(['knockout', 'underscore'], function(ko, _) {
 	
 	function GamesViewModel(parent) {
 		var self = this;
-		parent.pg_games = ko.observable(self);
 		
 		// Data
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;

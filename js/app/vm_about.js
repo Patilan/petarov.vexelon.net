@@ -11,7 +11,6 @@ define(['knockout', 'underscore', 'Markdown.Converter'], function(ko, _) {
 		var self = this;
 		
 		// Data
-		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
 		self.markdown = ko.observable();
 		
 		// Behaviours

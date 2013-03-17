@@ -9,7 +9,6 @@ define(['knockout', 'underscore'], function(ko, _) {
 	
 	function OSSViewModel(parent) {
 		var self = this;
-		parent.pg_oss = ko.observable(self);
 		
 		// Data
 		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
