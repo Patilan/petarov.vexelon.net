@@ -4,8 +4,10 @@ if (empty($_GET['callback'])) {
 	header("HTTP/1.0 500 Internal Server Error");
 	die("Missing jsonp parameter!");
 }
+
 $callback = $_GET['callback'];
 $file = '';
+
 switch($who) {
 	case 'games':
 		$file = 'games.json';
@@ -20,18 +22,20 @@ switch($who) {
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 		$xml_output = curl_exec($curl);
-		if (FALSE  === $xml_output) {
-			die("fsck " . curl_error($curl));
-		}
 		curl_close($curl);
+		
+		if (FALSE  === $xml_output) {
+			header("HTTP/1.0 500 Internal Server Error");
+			die(curl_error($curl));			
+		}
 		
 		echo $_GET['callback'] . '(' . json_encode(array('xml' => $xml_output)) . ')';
 		exit;
 	default:
 		header("HTTP/1.0 404 Not Found");
-		die("not found $who");
+		die("$who not found!");
 		break;
 }
-// spit it
+// spit it out
 echo $_GET['callback'] . '(' . file_get_contents($file) . ')';
 ?>
