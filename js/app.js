@@ -61,16 +61,19 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'plugin/domReady!'], func
 			beforePageDisplayed: function(data) {
 				$('#menu').children('li').removeClass('active');
 				$('#' + viewModel.navlis[data.currentId]).addClass('active');
-			},
-			// Behaviours
-//				gotoAnchor: function(to) {
-//					var that = this;
-//					$(to).closest('li').toggleClass('active');
-//					$('#' + to.lid).toggleClass('active');
-//					$('#' + to.lid).siblings().removeClass('active');
-//					location.href = to.href;
-//				},
+			}
 	};
+	
+//	pager.navigationFailed = function(nav) {
+//		console.log(nav);
+//        var page = pager.navigationFailed().page;
+//        var route = pager.navigationFailed().route;
+//        if (page && page.getId() == null) {
+//            //viewModel.newChildren.push({childId: route[0]});
+//            //page.showPage(route);
+//            window.location.hash = '#start';
+//        }		
+//	}	
 	
 	window.viewModel = viewModel;
 	
