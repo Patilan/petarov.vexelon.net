@@ -1,6 +1,7 @@
+
 **petar.petrov.georgiev(-at]gmail[dot-)com**
 
-The whole web page is build using Javascript and with the exception of some JSONP data, served by a simple 
+This web page is build using Javascript and with the exception of some JSONP data, served by a simple 
 PHP script, no other server side code is used. 
 
 # Open Source Libraries
@@ -15,3 +16,4 @@ The following open source libraries are used:
   * [Holder.js](http://imsky.github.com/holder/) - Holder renders image placeholders entirely on the client side.  
   * [PageDown](https://code.google.com/p/pagedown/) - is the version of Attacklab's Showdown and WMD as used on Stack Overflow and the other Stack Exchange sites.  
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
+

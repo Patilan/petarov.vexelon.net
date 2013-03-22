@@ -15,6 +15,7 @@ Allow from All
 	RewriteRule ^oss(.*)$		fetch.php?w=oss [L,QSA]
 	RewriteRule ^games(.*)$		fetch.php?w=games [L,QSA]
 	RewriteRule ^atom(.*)$		fetch.php?w=atom [L,QSA]
+	RewriteRule ^aboutthispage(.*)$		fetch.php?w=about [L,QSA]
 	
 	RewriteCond %{THE_REQUEST}	fetch\.php
 	RewriteRule ^ - [L,F]

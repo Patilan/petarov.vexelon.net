@@ -5,7 +5,7 @@
  * http://petarov.vexelon.net/
  * 
  */
-define(['knockout', 'underscore', 'Markdown.Converter'], function(ko, _) {
+define(['knockout', 'underscore', 'js-markdown-extra'], function(ko, _) {
 	
 	function AboutViewModel(parent, conf) {
 		var self = this;
@@ -46,12 +46,16 @@ define(['knockout', 'underscore', 'Markdown.Converter'], function(ko, _) {
 			var that = this;
 			
 	        $.ajax({
-	            url: that.conf.server.baseUrl + 'data/about.md',
+	            url: that.conf.server.baseUrl + 'data/aboutthispage',
 	            async: false,
 		  	}).done(function(data) {
 		  		
-				var converter = new Markdown.Converter();
-				that.markdown(converter.makeHtml(data));
+//				var converter = new Markdown.Converter();
+//				that.markdown(converter.makeHtml(data));
+		  		
+		  		var html = Markdown(data);
+		  		console.log(html);
+		  		that.markdown(html);
 				
 				// notify
 				callback(null);
