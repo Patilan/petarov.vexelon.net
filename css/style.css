@@ -12,7 +12,7 @@ body {
     /*overflow:hidden; */
     background: white;
     font-family: "Roboto", Tahoma, Sans-serif, Helvetica;
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    /*padding-top: 60px;  60px to make the container go all the way to the bottom of the topbar */
 }
 .clear{
     clear:both;
@@ -35,7 +35,6 @@ body {
 #footer {
     background-color: #f5f5f5;
 }
-
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
     #footer {
@@ -46,8 +45,13 @@ body {
     }
 }
 
-  /* Custom page CSS */
 
+  /* Custom page CSS */
+  
+#wrap > .container {
+   padding-top: 60px;
+} 
+ 
 .container .credit {
     margin: 20px 0;
 }
