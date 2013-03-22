@@ -5,14 +5,17 @@
  * http://petarov.vexelon.net/
  * 
  */
-define(['knockout', 'underscore'], function(ko, _) {
+define(['knockout', 'underscore', 'js-markdown-extra'], function(ko, _) {
 	
 	function GameDesignsViewModel(parent, conf) {
 		var self = this;
 		
 		// Data
 		self.conf = conf;
-		self.gamedesignslist = ko.observableArray();
+		self.markdown = ko.observable();
+		self.designs = ko.observableArray();
+		self.designs.loading = ko.observable(false);
+		self.designs.loaded = ko.observable(false);
 		
 		// Behaviors
 		
@@ -36,7 +39,28 @@ define(['knockout', 'underscore'], function(ko, _) {
 				to = '#pane-gamedesigns';
 			}				
 			ko.applyBindings(self, $(to)[0]);
-		};			
+		};
+		
+		self.showDesign = function(entry) {
+			var that = self;
+			
+			that.designs.loading(true);
+			
+	        $.ajax({
+	            url: that.conf.server.baseUrl + 'data/page/' + entry.entry,
+	            async: true,
+		  	}).done(function(data) {
+		  		var html = Markdown(data);
+		  		that.markdown(html);
+		  		that.designs.loaded(true);
+		  		that.designs.loading(false);
+		  	}).fail(function(error) {
+		  		console.log(error);
+		  		that.markdown(error.statusText);
+		  		that.designs.loaded(true);
+		  		that.designs.loading(false);
+		  	});			
+		},
 		
 		/*
 		 * Fetch GameDesigns JSON
@@ -51,7 +75,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		  	}).done(function(data) {
 		  		_.each(data.articles, function(item) {
 		  			if (item.gamedesign) {
-		  				that.gamedesignslist.push(item);
+		  				that.designs.push(item);
 		  			}
 		  		});
 				// notify

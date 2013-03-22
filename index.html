@@ -85,7 +85,7 @@
 					<!-- div class="progress progress-striped active" data-bind="visible: commits.loading">
 					  <div id="commits-bar" class="bar" style="width: 0%;"></div>
 					</div -->	
-					<img src="img/ajax-loader.gif" data-bind="visible: commits.loading" />  	
+					<img src="img/ajax-loader.gif" data-bind="visible: commits.loading" />
 				    <div id="commits-widget" data-bind="foreach: commits">
 			            <span data-bind="html: content"></span>
 			            <br />
@@ -115,16 +115,20 @@
 		<div id="pane-gamedesigns" class="row" 
 			data-bind="page: {id: 'gamedesigns', fx: 'fade', withOnShow: requireVM('vm_gamedesigns'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
 			
-		    <div class="span9">
+		    <div class="span10">
 			    <h3>Game Designs</h3>
 			    <p>Game development is what gives me joy, inspiration and boosts up my creativity.</p>
 			    
-				<ul class="media-list" data-bind="foreach: gamedesignslist">
+				<ul class="media-list" data-bind="foreach: designs">
 				  <li class="media">
-				    <a class="pull-left" href="#" data-bind="attr: { href: entry }, text: title"></a>
+				    <a class="pull-left" href="#" data-bind="attr: { href: entry }, text: title, click: $parent.showDesign"></a>
 				    <span class="label" data-bind="text: desc"></span>
 				  </li>
 				</ul>
+			</div>
+			<div class="span10">
+				<img src="img/ajax-loader.gif" data-bind="visible: designs.loading" />
+				<div data-bind="html: markdown, visible: designs.loaded"></div>
 			</div>
 		</div>		
 		
@@ -132,9 +136,7 @@
 		<div id="pane-games" class="row" 
 			data-bind="page: {id: 'games', fx: 'fade', withOnShow: requireVM('vm_games'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
 			
-			<div class="row-fluid">
-								
-		    <div class="span9">
+		    <div class="span5">
 		    <h3>Released Games</h3>
 			<p>These are some of my amatuer productions.</p>		    
 			<ul class="media-list" data-bind="foreach: gameslist">
@@ -145,17 +147,12 @@
 			    <div class="media-body">
 			      <h4 class="media-heading" data-bind="text: title"></h4>
 			      <p data-bind="text: desc"></p>
-	            <!--  p>
-		            <a href="#" class="btn btn-link">Web</a>
-		            <a href="#" class="btn btn-link">Source</a>
-		            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
-	            </p -->
 			    </div>
 			  </li>
 			</ul>		
 			</div> 
 			
-		    <!-- >div class="span5">
+		    <div class="span5">
 		    <h3>Not Released</h3>
 			<ul class="media-list" data-bind="foreach: gameslist_unreleased">
 			  <li class="media">
@@ -168,12 +165,9 @@
 			    </div>
 			  </li>
 			</ul>
-			</div -->
-			
-			</div>		
+			</div>			
 						
 		</div>
-		
 		
 		<!-- Open Source (OSS) -->
 		<div id="pane-oss" class="row" 

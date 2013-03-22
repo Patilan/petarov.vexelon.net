@@ -34,6 +34,19 @@ switch($who) {
 		break;
 		
 	case 'articles':
+// 		die('sec ' . $_GET['page']);
+		if (!empty($_GET['page'])) {
+			$section = strip_tags($_GET['page']);
+			switch($section) {
+				case 'orbital_scavengers':
+					outText('articles/orbital_scavengers.md');
+					return;
+				case 'spitflyer_effect':
+					outText('articles/spitflyer_effect.md');
+					return;				
+			}
+		}
+		// default
 		validateCallback();
 		outJSON('articles.json');
 		break;

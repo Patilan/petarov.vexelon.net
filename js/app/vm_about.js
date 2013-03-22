@@ -49,12 +49,7 @@ define(['knockout', 'underscore', 'js-markdown-extra'], function(ko, _) {
 	            url: that.conf.server.baseUrl + 'data/aboutthispage',
 	            async: false,
 		  	}).done(function(data) {
-		  		
-//				var converter = new Markdown.Converter();
-//				that.markdown(converter.makeHtml(data));
-		  		
 		  		var html = Markdown(data);
-		  		console.log(html);
 		  		that.markdown(html);
 				
 				// notify
