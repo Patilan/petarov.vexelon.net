@@ -1,8 +1,10 @@
 
 **petar.petrov.georgiev(-at]gmail[dot-)com**
 
-This web page is build using Javascript and with the exception of some JSONP data, served by a simple 
-PHP script, no other server side code is used. 
+This web page is build using Javascript only and it is my personal experiment to what can be done using mostly client
+side programming.
+
+Some data, e.g., JSONP or plain text, is served by a simple PHP script but no other server side code is used. 
 
 # Open Source Libraries
 The following open source libraries are used:
@@ -14,6 +16,7 @@ The following open source libraries are used:
   * [Underscore.js](http://underscorejs.org/) - utility-belt library for JavaScript.
   * [Googole Plus Javascript API](https://github.com/AdminSpot/Google-Plus-javascript-API) - Google Plus Javascript API.
   * [Holder.js](http://imsky.github.com/holder/) - Holder renders image placeholders entirely on the client side.  
-  * [PageDown](https://code.google.com/p/pagedown/) - is the version of Attacklab's Showdown and WMD as used on Stack Overflow and the other Stack Exchange sites.  
+  * [js-markdown-extra](https://github.com/tanakahisateru/js-markdown-extra) - PHP-Markdown-extra compatible Javascript markdown syntax parser.  
+  * [Moment.js](http://momentjs.com/) - A 5.5kb javascript date library for parsing, validating, manipulating, and formatting dates.
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
 
