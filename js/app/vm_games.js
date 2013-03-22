@@ -12,6 +12,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 		
 		// Data
 		self.conf = conf;
+		self.gamedesignslist = ko.observableArray();
 		self.gameslist = ko.observableArray();
 		self.gameslist_unreleased = ko.observableArray();
 		
@@ -20,16 +21,25 @@ define(['knockout', 'underscore'], function(ko, _) {
 		self.init = function(callback) {
 			var that = this;
 			
-			that.fetchGames(function(err) {
+			that.fetchGameDesigns(function(err) {
 				if (err) {
-					console.log('fetchGames failed!');
+					console.log('fetchGameDesigns failed!');
 					console.log(err);
 					// TODO
 					return;
 				}
 				
-				callback(null);
-			});
+				that.fetchGames(function(err) {
+					if (err) {
+						console.log('fetchGames failed!');
+						console.log(err);
+						// TODO
+						return;
+					}
+					
+					callback(null);
+				}); // eof that.fetchGames
+			}); // eof fetchGameDesigns
 		};
 		
 		self.render = function(to) {
@@ -44,8 +54,6 @@ define(['knockout', 'underscore'], function(ko, _) {
 		 */
 		self.fetchGames = function(callback) {
 			var that = this;
-			
-			console.log(that.conf.server.baseUrl );
 			
 			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
@@ -65,6 +73,29 @@ define(['knockout', 'underscore'], function(ko, _) {
 		  		callback(error);
 		  	});				
 		};
+		
+		/*
+		 * Fetch GameDesigns JSON
+		 */
+		self.fetchGameDesigns = function(callback) {
+			var that = this;
+			
+			$.ajax({dataType: 'jsonp',
+				jsonp: 'callback',
+				url: that.conf.server.baseUrl + 'data/articles', 
+				crossDomain: 'false'
+		  	}).done(function(data) {
+		  		_.each(data.articles, function(item) {
+		  			if (item.gamedesign) {
+		  				that.gamedesignslist.push(item);
+		  			}
+		  		});
+				// notify
+				callback(null);
+		  	}).fail(function(error) {
+		  		callback(error);
+		  	});				
+		};		
 		
 	};
 	

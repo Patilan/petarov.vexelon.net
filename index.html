@@ -37,7 +37,13 @@
             <div class="nav-collapse collapse" id="nav-menu">
                 <ul id="menu" class="nav">
                     <li id="mhome" class="active"><a href="#start">Home</a></li>
-                    <li id="mgames"><a href="#games">Games</a></li>
+                    <li id="mgames" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GameDev <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#gamedesigns">Designs</a></li>
+                            <li><a href="#games">Games</a></li>
+                        </ul>
+                    </li>
                     <li id="moss"><a href="#oss">Open Source</a></li>
                     <li id="mabout" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
@@ -106,16 +112,27 @@
 		<!-- Games -->
 		<div id="pane-games" class="row" 
 			data-bind="page: {id: 'games', fx: 'fade', withOnShow: requireVM('vm_games'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
-		    <div class="row-fluid">
-				<div class="hero-unit">
-					<h3>Games</h3>
-					<p>Game development is what gives me joy, inspiration and boosts up my creativity.</p>
-					<p>These are some of my amatuer productions.</p>
-				</div>
-			</div>
 			
-		    <div class="span5">
-		    <h3>Released</h3>
+			<!-- Game Designs -->		
+			<div class="row-fluid">
+			    <div class="span9">
+			    <h3>Game Designs</h3>
+			    <p>Game development is what gives me joy, inspiration and boosts up my creativity.</p>
+			    
+				<ul class="media-list" data-bind="foreach: gamedesignslist">
+				  <li class="media">
+				    <a class="pull-left" href="#" data-bind="attr: { href: entry }, text: title"></a>
+				    <span class="label" data-bind="text: desc"></span>
+				  </li>
+				</ul>
+				</div>
+			</div>					
+			
+			<div class="row-fluid">
+								
+		    <div class="span9">
+		    <h3>Released Games</h3>
+			<p>These are some of my amatuer productions.</p>		    
 			<ul class="media-list" data-bind="foreach: gameslist">
 			  <li class="media">
 			    <a class="pull-left thumbnail" href="#" data-bind="attr: { href: page_url }">
@@ -132,25 +149,9 @@
 			    </div>
 			  </li>
 			</ul>		
-		    <!--  ul class="thumbnails" data-bind="foreach: gameslist">
-			    <li class="span3" style="display: block">
-				    <div class="thumbnail">
-				    	<img src="" class="img-rounded" data-bind="attr: { src: thumbnail }" style="width: 160; height: 120;">
-				    	<div class="caption">
-				    	<h3 data-bind="text: title"></h3>
-			            <p data-bind="text: desc"></p>
-			            <p>
-				            <a href="#" class="btn btn-link">Web</a>
-				            <a href="#" class="btn btn-link">Source</a>
-				            <a href="#" class="btn btn-primary" data-bind="click: $parent.clickr">Download</a>
-			            </p>
-				    	</div>
-				    </div>
-				</li>
-		    </ul -->
 			</div> 
 			
-		    <div class="span5">
+		    <!-- >div class="span5">
 		    <h3>Not Released</h3>
 			<ul class="media-list" data-bind="foreach: gameslist_unreleased">
 			  <li class="media">
@@ -163,9 +164,12 @@
 			    </div>
 			  </li>
 			</ul>
-			</div>				
+			</div -->
 			
+			</div>		
+						
 		</div>
+		
 		
 		<!-- Open Source (OSS) -->
 		<div id="pane-oss" class="row" 

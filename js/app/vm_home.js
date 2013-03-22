@@ -42,8 +42,8 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 					// UI loaded
 					self.commits.loading(false);
 					callback(null);
-				});
-			});
+				}); // eof fetchGithubAtom
+			}); // eof fetchGPlus
 			
 		};
 		

@@ -33,6 +33,11 @@ switch($who) {
 		outJSON('oss.json');		
 		break;
 		
+	case 'articles':
+		validateCallback();
+		outJSON('articles.json');
+		break;
+				
 	case 'atom':
 		validateCallback();
 		
