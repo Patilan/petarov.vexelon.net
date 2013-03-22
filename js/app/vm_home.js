@@ -113,7 +113,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 		self.fetchGithubAtom = function(callback) {
 			var that = this;
 			
-			var srv = 'http://' + window.location.hostname + window.location.pathname;
+			var srv = '/'; //'http://' + window.location.hostname + window.location.pathname;
 			
 			// GitHub
 			$.ajax({dataType: 'jsonp',

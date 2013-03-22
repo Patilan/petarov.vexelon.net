@@ -7,10 +7,11 @@
  */
 define(['knockout', 'underscore', 'Markdown.Converter'], function(ko, _) {
 	
-	function AboutViewModel(parent) {
+	function AboutViewModel(parent, conf) {
 		var self = this;
 		
 		// Data
+		self.conf = conf;
 		self.markdown = ko.observable();
 		
 		// Behaviours
@@ -45,7 +46,7 @@ define(['knockout', 'underscore', 'Markdown.Converter'], function(ko, _) {
 			var that = this;
 			
 	        $.ajax({
-	            url: "data/about.md",
+	            url: that.conf.server.baseUrl + 'data/about.md',
 	            async: false,
 		  	}).done(function(data) {
 		  		

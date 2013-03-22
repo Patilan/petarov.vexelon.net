@@ -42,6 +42,7 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'holder', 'plugin/domRead
 	
 	// master view model
 	var viewModel = {
+			// navigation
 			navlis: {
 		       'start': 'mhome',
 		       'games': 'mgames',
@@ -49,11 +50,15 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'holder', 'plugin/domRead
 		       'bio': 'mabout',
 		       'contact': 'mabout'
 			},
+			// branding
+			sitename: ko.observable(conf.site.name),
+			siteavatar: ko.observable(conf.site.avatar_link),
 			
-			// Routines
+			/*
+			 * Routines
+			 */
 			
 			beforePageHide: function(data) {
-				// Leer
 			},
 			beforePageDisplayed: function(data) {
 				$('#menu').children('li').removeClass('active');

@@ -7,12 +7,11 @@
  */
 define(['knockout', 'underscore'], function(ko, _) {
 	
-	function GamesViewModel(parent) {
+	function GamesViewModel(parent, conf) {
 		var self = this;
 		
 		// Data
-		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
-		//location; //.protocol + window.location.hostname + ;
+		self.conf = conf;
 		self.gameslist = ko.observableArray();
 		self.gameslist_unreleased = ko.observableArray();
 		
@@ -46,9 +45,11 @@ define(['knockout', 'underscore'], function(ko, _) {
 		self.fetchGames = function(callback) {
 			var that = this;
 			
+			console.log(that.conf.server.baseUrl );
+			
 			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
-				url: that.originURL + 'data/games', 
+				url: that.conf.server.baseUrl + 'data/games', 
 				crossDomain: 'false'
 		  	}).done(function(data) {
 		  		_.each(data.games, function(item) {

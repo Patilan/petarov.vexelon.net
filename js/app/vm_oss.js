@@ -7,12 +7,11 @@
  */
 define(['knockout', 'underscore'], function(ko, _) {
 	
-	function OSSViewModel(parent) {
+	function OSSViewModel(parent, conf) {
 		var self = this;
 		
 		// Data
-		self.originURL = 'http://' + window.location.hostname + window.location.pathname;
-		//location; //.protocol + window.location.hostname + ;
+		self.conf = conf;
 		self.ossprojects = ko.observableArray();
 		self.appsprojects = ko.observableArray();
 		
@@ -50,7 +49,7 @@ define(['knockout', 'underscore'], function(ko, _) {
 			
 			$.ajax({dataType: 'jsonp',
 				jsonp: 'callback',
-				url: that.originURL + 'data/oss', 
+				url: that.conf.server.baseUrl + 'data/oss', 
 				crossDomain: 'false'
 		  	}).done(function(data) {
 		  		_.each(data.oss, function(item) {

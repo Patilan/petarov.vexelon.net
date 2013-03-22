@@ -33,15 +33,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">PETAROV</a>
+            <a class="brand" href="#"><span data-bind="text: sitename"></span></a>
             <div class="nav-collapse collapse" id="nav-menu">
-                <!--  ul class="nav" data-bind="foreach: navanchors">
-                <li data-bind="attr: { id: lid }" class="navlis">
-                	<a href="" data-bind="page-href: {href: link}, click: $parent.gotoAnchor">
-                	<span data-bind="text: name"></span>
-                	</a>
-                </li>
-                </ul -->
                 <ul id="menu" class="nav">
                     <li id="mhome" class="active"><a href="#start">Home</a></li>
                     <li id="mgames"><a href="#games">Games</a></li>
@@ -68,7 +61,7 @@
 		    <div class="span3">
 			    <div class="well sidebar-nav">
 			    <p>
-			    <img src="img/face.png" style="width: 200px; heiht: 180px;" class="img-polaroid" />
+			    <img data-src="holder.js/200x180" data-bind="attr: {src: $root.siteavatar}" style="width: 200px; heiht: 180px;" class="img-polaroid" />
 			    </p>
 			    <p>
 					<!-- Fügen Sie diesen Code dort ein, wo die Box dargestellt werden soll. -->
