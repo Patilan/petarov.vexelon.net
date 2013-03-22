@@ -45,7 +45,7 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'holder', 'plugin/domRead
 			// navigation
 			navlis: {
 		       'start': 'mhome',
-		       'games': 'mgames',
+		       'games': 'mgamedev',
 		       'oss': 'moss',
 		       'bio': 'mabout',
 		       'contact': 'mabout'
@@ -82,14 +82,14 @@ require(['knockout', 'app/conf', 'pager', 'bootstrap', 'holder', 'plugin/domRead
 	// define view models loader
 	window.vms = {};
 	
-    window.requireVM = function(module) {
+    window.requireVM = function(module, renderTo) {
 	    return function (callback) {
 //	    	console.log(module);
 	    	if (!window.vms[module]) {
 		    	require(['app/' + module], function(VModel) {
 					var vm = new VModel(window.viewModel, conf);
 					vm.init(function(err) {
-						vm.render();
+						vm.render(renderTo);
 //							callback(vm);
 					});
 					window.vms[module] = vm;
