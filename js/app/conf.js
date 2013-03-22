@@ -7,6 +7,12 @@
  */
 define([], function() {
     var config = {
+    		server: {
+    			baseUrl: location.protocol+'//'+location.hostname+(location.port ? ':' + location.port: '') + '/',
+    		},
+    		avatar: {
+    			link: 'http://www.gravatar.com/avatar/c19e7ea0c405ab71f87a2ce6077a958e.png',
+    		},
     		google: {
     			apiKey: 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8',
     			clientId: '101695111306977669026',
