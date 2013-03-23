@@ -1,7 +1,7 @@
 PETAROV
 ==========================
 
-Nothing but a personal blog page containing sections like:
+A personal blog page containing sections like:
 
 	* Microblog (posts fetched from public Google profile)
 	* Coding (RSS fetched form Github profile)
@@ -10,10 +10,12 @@ Nothing but a personal blog page containing sections like:
 	* Anything else you may think of ... 
 
 The whole web page is build using Javascript and with the exception of some JSONP data, served by a simple 
-_fetch.php_ PHP script, no othre server side code is used. 
+_fetch.php_ PHP script, no other server side code is used. Knockout MVVM are used to separate sub page functionality.
 
 # Setup
 ## Configure local test environment
+
+This configuration is mainly required because of the .htaccess rules in the *data* folder.
 
 Open your Apache Virtual Hosts configurations, e.g. _apache\conf\httpd-vhosts.conf_ in XAMPP, and add the following:
 
@@ -51,7 +53,8 @@ The following open source libraries are used:
   * [Underscore.js](http://underscorejs.org/) - utility-belt library for JavaScript.
   * [Googole Plus Javascript API](https://github.com/AdminSpot/Google-Plus-javascript-API) - Google Plus Javascript API.
   * [Holder.js](http://imsky.github.com/holder/) - Holder renders image placeholders entirely on the client side.  
-  * [PageDown](https://code.google.com/p/pagedown/) - is the version of Attacklab's Showdown and WMD as used on Stack Overflow and the other Stack Exchange sites.  
+  * [js-markdown-extra](https://github.com/tanakahisateru/js-markdown-extra) - PHP-Markdown-extra compatible Javascript markdown syntax parser.  
+  * [Moment.js](http://momentjs.com/) - A 5.5kb javascript date library for parsing, validating, manipulating, and formatting dates.
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
 
 # License

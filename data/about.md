@@ -1,6 +1,4 @@
 
-**petar.petrov.georgiev(-at]gmail[dot-)com**
-
 This web page is build using Javascript only and it is my personal experiment to what can be done using mostly client
 side programming.
 
