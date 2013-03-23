@@ -3,14 +3,14 @@
 	         // Game designs
  		{
 			title: 'Orbital Scavengers',
-			desc: 'An action game about collecting space junk.',
+			desc: 'An action 3D game about fighting pollution & collecting junk in outer space.',
 			thumbnail: 'https://raw.github.com/petarov/myglob/master/res/drawable-hdpi/icon.png',
 			entry: 'orbital_scavengers',
 			gamedesign: true,
 		},
  		{
 			title: 'Spitflyer Effect',
-			desc: 'An action game about collectin l',
+			desc: 'An action game for handsets where you take control of a powerful battle armour called SpitFlyer.',
 			thumbnail: 'https://raw.github.com/petarov/myglob/master/res/drawable-hdpi/icon.png',
 			entry: 'spitflyer_effect',
 			gamedesign: true,
