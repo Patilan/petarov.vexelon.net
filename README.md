@@ -3,11 +3,11 @@ PETAROV
 
 A personal blog page containing sections like:
 
-	* Microblog (posts fetched from public Google profile)
-	* Coding (RSS fetched form Github profile)
-	* Games (JSONP locally fetched data)
-	* Open Source (JSONP locally fetched data)
-	* Anything else you may think of ... 
+  * Microblog (posts fetched from public Google profile)
+  * Coding (RSS fetched form Github profile)
+  * Games (JSONP locally fetched data)
+  * Open Source (JSONP locally fetched data)
+  * Anything else you may think of ... 
 
 The whole web page is build using Javascript and with the exception of some JSONP data, served by a simple 
 _fetch.php_ PHP script, no other server side code is used. Knockout MVVM are used to separate sub page functionality.
@@ -58,5 +58,5 @@ The following open source libraries are used:
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
 
 # License
-Read the [LICNESE]() file for more info.
+Read the [a relative link](LICNESE) file for more info.
 
