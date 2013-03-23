@@ -10,7 +10,7 @@ A personal blog page containing sections like:
   * Anything else you may think of ... 
 
 The whole web page is build using Javascript and with the exception of some JSONP data, served by a simple 
-_fetch.php_ PHP script, no other server side code is used. Knockout MVVM are used to separate sub page functionality.
+_fetch.php_ PHP script, no other server side code is used. [Knockout](http://knockoutjs.com/) MVVM are used to separate sub page functionality.
 
 # Setup
 ## Configure local test environment
@@ -58,5 +58,5 @@ The following open source libraries are used:
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
 
 # License
-Read the [a relative link](LICNESE) file for more info.
+Read the [LICENSE](LICENSE) file for more info.
 
