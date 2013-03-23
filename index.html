@@ -119,8 +119,9 @@
 			    
 				<ul class="media-list" data-bind="foreach: designs">
 				  <li class="media">
-				    <a class="pull-left" href="#" data-bind="attr: { href: entry }, text: title, click: $parent.showDesign"></a>
-				    <span class="label" data-bind="text: desc"></span>
+				    <i class="pull-left icon-hand-right"></i>
+				    <a href="#" data-bind="attr: { href: entry }, text: title, click: $parent.showDesign"></a>
+				    <p data-bind="text: desc"></p>
 				  </li>
 				</ul>
 			</div>
