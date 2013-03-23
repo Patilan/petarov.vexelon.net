@@ -13,6 +13,7 @@ define([], function() {
     		site: {
     			name: 'PETAROV',
     			avatar_link: 'http://www.gravatar.com/avatar/c19e7ea0c405ab71f87a2ce6077a958e.png',
+    			email: { first: 'petar.', second: 'petrov.georgiev', domain: 'gmail.com' }, 
     		},
     		google: {
     			apiKey: 'AIzaSyCpdmuyNHOGzOvLCsN2OmtZ7w_z-3wxnn8',

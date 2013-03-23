@@ -13,11 +13,16 @@ define(['knockout', 'underscore', 'js-markdown-extra'], function(ko, _) {
 		// Data
 		self.conf = conf;
 		self.markdown = ko.observable();
+		self.email = ko.observable();
+		self.emailhref = ko.observable();
 		
 		// Behaviours
 		
 		self.init = function(callback) {
 			var that = this;
+			
+			that.email(conf.site.email.first + conf.site.email.second + '@' + conf.site.email.domain);
+			that.emailhref('mailto:' + that.email() + '?subject=I saw your website');
 			
 			that.fetchREADME(function(err) {
 				if (err) {

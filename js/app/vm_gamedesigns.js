@@ -56,7 +56,7 @@ define(['knockout', 'underscore', 'js-markdown-extra'], function(ko, _) {
 		  		that.designs.loading(false);
 		  	}).fail(function(error) {
 		  		console.log(error);
-		  		that.markdown(error.statusText);
+		  		that.markdown('Failed to load page!');
 		  		that.designs.loaded(true);
 		  		that.designs.loading(false);
 		  	});			

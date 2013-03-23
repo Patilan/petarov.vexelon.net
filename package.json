@@ -1,12 +1,12 @@
 {
-    "name" : "petarov javascript",
+    "name" : "petarov.vexelon.net",
     "description" : "Personal web page with Javascript",
-    "homepage" : "",
+    "homepage" : "http://petarov.vexelon.net",
     "keywords" : ["single-page", "javascript", "knockout", "bootstrap", "jquery"],
     "author" : "Petar Petrov",
     "contributors" : [],
     "dependencies" : [],
     "repository" : {"type": "git", "url": ""},
     "main" : "js/app.js",
-    "version" : "0.0.9"
+    "version" : "1.0.0"
 }

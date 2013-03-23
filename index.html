@@ -218,6 +218,7 @@
 		<!-- About -->
 		<div id="pane-contact" 
 			data-bind="page: {id: 'contact', fx: 'fade', withOnShow: requireVM('vm_about'), beforeHide: $root.beforePageHide, afterShow: $root.beforePageDisplayed}">
+			<p>Contact me at <a href="" data-bind="text: email, attr: {href: emailhref}"></a></p>
 			<div data-bind="html: markdown"></div>
 		</div>
 	
