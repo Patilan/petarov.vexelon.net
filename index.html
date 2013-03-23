@@ -77,7 +77,7 @@
 					<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/></a>		
 			    	<iframe src="/github-btn.html?user=petarov&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
 			    	<br />
-			    	<a href="http://de.linkedin.com/in/petarov" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="http://www.linkedin.com/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Petar Petrov's LinkedIn profile" style="vertical-align:middle" border="0"></span></a>
+			    	<a href="http://linkedin.com/in/petarov" style="text-decoration:none;"><span style="font: 80% Arial,sans-serif; color:#0783B6;"><img src="http://www.linkedin.com/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Petar Petrov's LinkedIn profile" style="vertical-align:middle" border="0"></span></a>
   				</p>
 			    </div>
 			    <div class="well">
@@ -99,13 +99,14 @@
 				</div>
 			    <div class="span8">
 			    	<!-- h2>Microblog</h2 -->
-			    	<img src="img/ajax-loader.gif" data-bind="visible: posts.loading" />
 				    <div id="micros-widget" data-bind="foreach: posts">
 				    	<h4><span data-bind="text: published"></span></h4>
 			            <p data-bind="html: content"></p>
 			            <p><a class="btn btn-info" href="#" data-bind="attr: {href: link}">Go to post &raquo;</a></p>
 			            <hr>
 					</div>
+					<p data-bind="visible: posts.loading" ><img src="img/ajax-loader.gif" /></p>
+					<p><a class="btn" href="#" data-bind="click: showMore, html: btnMoreText">More &raquo;</a></p>
 			    </div>
 			</div> 
 			
@@ -224,6 +225,7 @@
 		</div>
 	
     </div><!-- End: Container -->
+    <div id="push"></div>    
     </div><!-- End: wrap -->
     <div id="footer"><!-- Footer -->
 	    <div class="container">

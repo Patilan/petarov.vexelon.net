@@ -14,10 +14,25 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 		self.config = conf;
 		self.posts = ko.observableArray();
 		self.posts.loading = ko.observable(true);
+		self.posts.nextPageToken = ko.observable();
 		self.commits = ko.observableArray();
 		self.commits.loading = ko.observable(true);
+		self.btnMoreText = ko.observable('Next (' + conf.google.maxPosts + ') &raquo;');
 		
 		// Behaviours
+		
+		self.showMore = function() {
+			self.posts.loading(true);
+			
+			// nested fetch
+			self.fetchGPlus(function(err) {
+				self.posts.loading(false);	
+				if (err) {
+					console.log('fetchGPlus failed!');
+					return;
+				}
+			}, self.posts.nextPageToken());	
+		};
 		
 		self.init = function(callback) {
 			var that = this;
@@ -57,15 +72,25 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 		/*
 		 * Fetch GPlus posts
 		 */
-		self.fetchGPlus = function(callback) {
+		self.fetchGPlus = function(callback, nextPageToken) {
 			var that = this;
 			
 		    var apiKey = that.config.google.apiKey;
 		    var userId = that.config.google.clientId;
 			var GoogleAPI = new GooglePlusAPI(apiKey);
 			
-			GoogleAPI.listActivities(userId, {'maxResults': that.config.google.maxPosts}, function(error, result) {
-//				console.log(result);
+			var params = {'maxResults': that.config.google.maxPosts };
+			if (nextPageToken) {
+				params.pageToken = nextPageToken;
+			}
+			
+			console.log(params);
+			
+			GoogleAPI.listActivities(userId, params, function(error, result) {
+				
+				console.log(result);
+			
+				self.posts.nextPageToken(result.nextPageToken);
 				
 				_.each(result.items, function(item) {
 					that.posts.push({
@@ -74,7 +99,7 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 						published: moment(item.published).format("dddd, MMMM Do YYYY"),
 						});
 				});
-				
+			
 				// notify
 				callback(error);
 			});			
@@ -91,8 +116,6 @@ define(['knockout', 'underscore', 'googleplusapi.compressed', 'moment'], functio
 				url: that.config.github.apiUrl + '/users/petarov/repos', 
 				data: { 'type': 'public', 'sort': 'pushed', 'direction': 'desc' },
 		  	}).done(function(data) {
-	//				console.log(data);
-		  		
 				_.each(data.data, function(item) {
 					that.commits.push({
 						content: item.name, 
