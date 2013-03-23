@@ -3,7 +3,7 @@
 		{
 			title: 'Raging Gardens for Facebook',
 			desc: 'Facebook port of Raging Gardens. Uses Facebook Graph API to handle user logins and hiscore list.',
-			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
+			thumbnail: 'http://i.imgur.com/GkBO4Akl.png',
 			page_url: 'http://apps.facebook.com/raging_gardens/',
 			free: true,
 			released: true,
@@ -11,7 +11,7 @@
 		{
 			title: 'Raging Gardens',
 			desc: 'Raging Gardens is a HTML5/Javascript web browser game where a a hungry (ninja) rabbit farts too often.',
-			thumbnail: 'https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png',
+			thumbnail: 'http://i.imgur.com/GkBO4Aks.png',
 			page_url: 'http://petarov.github.com/game-off-2012/',
 			free: true,
 			released: true,
@@ -19,15 +19,15 @@
 		{
 			title: 'Tuxla 3D',
 			desc: '3D Mobile game for J2ME platforms.',
-			thumbnail: 'http://i.imgur.com/HVUACcK.gif',
-			page_url: 'http://goo.gl/fACu9',
+			thumbnail: 'http://i.imgur.com/TTew4wjs.png',
+			page_url: 'http://pi-mobile.com/index.php/product/game/tuxla/view/14/',
 			free: false,
 			released: true,
 		},		
 		{
 			title: 'Savage Wheels',
 			desc: 'Savage Wheels is 2D car crashing game similar to the old classic Destruction Derby.',
-			thumbnail: 'http://kenamick.com/savagewheels/images/shot6.jpg',
+			thumbnail: 'http://i.imgur.com/09h8j1Ms.jpg',
 			page_url: 'https://code.google.com/p/savagewheels/',
 			free: true,
 			released: true,
@@ -35,7 +35,7 @@
 		{
 			title: 'Ivo the vampire',
 			desc: '2D shoot\'em up game',
-			thumbnail: 'http://i.imgur.com/zEUNPHE.png',
+			thumbnail: 'http://i.imgur.com/ZUwPZPr.png',
 			page_url: 'https://code.google.com/p/ivothevampire/',
 			free: true,
 			released: true,
@@ -43,7 +43,7 @@
 		{
 			title: 'Desktop Defender 2',
 			desc: '2D side-scroller, space shooter game',
-			thumbnail: 'http://kenamick.com/dd2/images/shot1.jpg',
+			thumbnail: 'http://i.imgur.com/MKhHK77s.jpg',
 			page_url: 'https://code.google.com/p/desktopdefender2/',
 			free: true,
 			released: true,
@@ -51,7 +51,7 @@
 		{
 			title: 'Zero1_IZ3D',
 			desc: 'An attempt to create a 3D game engine using OpenGL and C++.',
-			thumbnail: 'http://i.imgur.com/HqyKF7F.png',
+			thumbnail: 'http://i.imgur.com/k5NCUrCs.png',
 			page_url: 'https://code.google.com/p/zero1iz3d/',
 			free: true,
 			released: false,
